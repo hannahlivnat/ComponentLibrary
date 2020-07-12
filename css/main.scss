@@ -1,0 +1,41 @@
+html, body, main, .containerdiv {
+  height: 100%;
+  width: 100%;
+}
+
+.containerdiv{
+  grid: display;
+  grid-template-rows: 1fr 50px;
+  grid-template-columns: 100%;
+  grid-template-areas: 
+  "main"
+  "footer";
+
+  .main-section {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+.nouser-section{
+  width: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr 100px;
+  grid-template-columns: 100%;
+  grid-template-areas: 
+  "header"
+  "mainsection"
+  "bottombanner";
+
+  header {
+    grid-area: header;
+  }
+  .main-nouser-section {
+    grid-area: mainsection
+  }
+  .bottom-banner {
+    grid-area: bottombanner
+  }
+}
