@@ -12,44 +12,44 @@ class Signup extends React.Component {
                   </a>
               </div>
               <div className="form-group">
-                  <label for="firstname-signup">First Name</label>
+                  <label htmlFor="firstname-signup">First Name</label>
                   <input
                       type="text"
                       className="form-control"
-                      id="firstname-signup"
+                      id="firstname-signup" required
                   />
               </div>
               <div className="form-group">
-                  <label for="lastname-signup">Last Name</label>
+                  <label htmlFor="lastname-signup">Last Name</label>
                   <input
                       type="text"
                       className="form-control"
-                      id="lastname-signup"
+                      id="lastname-signup" required
                   />
               </div>
               <div className="form-group">
-                  <label for="image-signup">Image</label>
+                  <label htmlFor="image-signup">Image</label>
                   <input
                       type="text"
                       className="form-control"
-                      id="image-signup"
+                      id="image-signup" required
                   />
               </div>
               <div className="form-group">
-                  <label for="username-signup">Username</label>
+                  <label htmlFor="username-signup">Username</label>
                   <input
                       type="text"
                       className="form-control"
-                      id="username-signup"
+                      id="username-signup" required
                   />
               </div>
               <div className="form-group ">
-                  <label for="password-signup">Password</label>
+                  <label htmlFor="password-signup">Password</label>
 
                   <input
-                      type="text"
+                      type="password"
                       className="form-control"
-                      id="password-signup"
+                      id="password-signup" required
                   />
               </div>
               <div className="row justify-content-sm-center">

@@ -13,20 +13,20 @@ class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label for="username-login">Username</label>
+              <label htmlFor="username-login">Username</label>
               <input
                   type="text"
                   className="form-control"
-                  id="username-login"
+                  id="username-login" required
               />
             </div>
             <div className="form-group ">
-              <label for="password-login">Password</label>
+              <label htmlFor="password-login">Password</label>
 
               <input
-                  type="text"
+                  type="password"
                   className="form-control"
-                  id="password-login"
+                  id="password-login" required
               />
             </div>
             <div className="row justify-content-sm-center">

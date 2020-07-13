@@ -1,5 +1,6 @@
 //color
 $gray : hsl(43,28,82);
+$light-blue: hsl(188, 41, 48);
 
 // mixins
 @mixin hundredeverything {
@@ -11,10 +12,6 @@ $gray : hsl(43,28,82);
   padding: 0;
   margin: 0;
 }
-
-
-
-
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -67,6 +64,12 @@ ul {
   header {
     grid-area: header;
 
+    h4 {
+      padding-left: 3rem;
+      font-size: 2rem;
+      letter-spacing: .02rem;
+      color: $light-blue;
+    }
   }
 
   .main-nouser-section{
@@ -76,10 +79,33 @@ ul {
     grid: display;
   }
 
+  .splash-section {
+    display: grid;
+    place-content: center;
+  }
   .bottom-banner {
     width: 100%;
     grid-area: banner;
     background-color: whitesmoke;
+
+    ul, li {
+      height: 100%;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        color: $light-blue;
+        letter-spacing: .01rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin-top: 1rem;
+      }
+    }
   }
 }
 

@@ -2,24 +2,14 @@
 
 one:
   first_name: MyString
-  string: MyString
   last_name: MyString
-  string: MyString
-  user_name: MyString
-  string: MyString
-  password: MyString
-  string: MyString
   image: MyString
-  string: MyString
+  user_name: MyString
+  password_digest: MyString
 
 two:
   first_name: MyString
-  string: MyString
   last_name: MyString
-  string: MyString
-  user_name: MyString
-  string: MyString
-  password: MyString
-  string: MyString
   image: MyString
-  string: MyString
+  user_name: MyString
+  password_digest: MyString
