@@ -1,3 +1,89 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+//color
+$gray : hsl(43,28,82);
+
+// mixins
+@mixin hundredeverything {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin zeromarginpadding {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  @include hundredeverything;
+  @include zeromarginpadding;
+
+  > div {
+    @include hundredeverything;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.containerdiv{
+  @include hundredeverything;
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  grid-template-columns: 100%;
+  grid-template-areas: 
+  "main"
+  "footer";
+
+  .main-section {
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: footer;
+    display: grid;
+    place-content: center;
+  }
+}
+
+.nouser-section {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr 200px;
+  grid-template-columns: 100%;
+  grid-template-areas: 
+  "header"
+  "main"
+  "banner";
+
+  header {
+    grid-area: header;
+
+  }
+
+  .main-nouser-section{
+    grid-area: main;
+    width: 90%;
+    margin: auto;
+    grid: display;
+  }
+
+  .bottom-banner {
+    width: 100%;
+    grid-area: banner;
+    background-color: whitesmoke;
+  }
+}
+
+.userpresent {
+  @include hundredeverything;
+  display: grid;
+}
