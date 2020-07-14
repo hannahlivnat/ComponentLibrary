@@ -27,5 +27,18 @@ class ComponentController < ApplicationController
     render json: Component.all
   end
   def update
+    component_to_update = Component.find(params["id"])
+    user = User.find_by(user_name: 'testuser')
+    component_to_update.update(
+      image: params["image"], 
+      title: params["title"], 
+      description: params["description"], 
+      code_block: params["code_block"], 
+      tags: params["tags"], 
+      public: params["public"], 
+      user: user
+    )
+
+    render json: Component.all
   end
 end

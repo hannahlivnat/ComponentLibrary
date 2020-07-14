@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/user/:username', to: 'user#show'
   post '/user', to: 'user#new'
   delete '/user/:id', to: 'user#destroy'
+  put '/user/:id', to: 'user#update'
 end
