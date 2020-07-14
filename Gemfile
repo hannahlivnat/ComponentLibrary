@@ -20,7 +20,7 @@ gem 'react-rails'
 gem 'active_model_serializers'
 
 #active record
-gem 'activerecord', '~> 5.0', '>= 5.0.0.1'
+gem 'activerecord', '~> 6.0', '>= 6.0.3.2'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

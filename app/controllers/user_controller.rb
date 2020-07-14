@@ -5,7 +5,7 @@ class UserController < ApplicationController
   def show
     render json: User.find_by(user_name: params["username"])
   end
-  def create
+  def new
     render json: User.create(
       first_name: params["first_name"], 
       last_name: params["last_name"], 
