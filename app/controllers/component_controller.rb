@@ -1,3 +1,6 @@
 #rails prefers plural for the controller
-class ComponentsController < ApplicationController
+class ComponentController < ApplicationController
+  def index
+    render json: Component.all
+  end
 end
