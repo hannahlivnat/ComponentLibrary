@@ -8,6 +8,7 @@ class ComponentController < ApplicationController
   end
   # create does not work, how to get relationship to user?
   def create
+    const user = User.find_by(user_name: 'testuser')
     render json: Component.create(
       image: params["image"], 
       title: params["title"], 
@@ -15,7 +16,7 @@ class ComponentController < ApplicationController
       code_bock: params["code_block"], 
       tags: params["tags"], 
       public: params["public"], 
-      user: params["user_id"]
+      user: user
     )
   end
 end

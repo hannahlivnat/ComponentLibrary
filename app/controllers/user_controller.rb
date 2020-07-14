@@ -14,4 +14,7 @@ class UserController < ApplicationController
       password: params["password"], 
     )
   end
+  def delete
+    render json: User.find(params["id"])
+  end
 end
