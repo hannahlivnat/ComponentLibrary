@@ -8,10 +8,16 @@
 
 user = User.create(first_name:"Hannah", last_name: "Livnat", user_name: "testing-user", password: "testing-password", image: '../app/assets/images/meshi.jpg')
 
-component = Component.create(title: "Button", description: "This is a button", image: "../app/assets/images/login-button.png", code_block: "   
+component = Component.create(
+  title: "Button", 
+  description: "This is a button", 
+  image: "../app/assets/images/login-button.png", 
+  code_block: "   
     .btn-small {
       background-color: hsl(211, 82, 40);
       display: block;
       margin: 0 auto 1vh auto;
     }", 
-tags: ["button", "form button", "login"], public: true, user: user)
+  tags: ["button", "form button", "login"], 
+  public: true, 
+  user: user)
