@@ -6,6 +6,7 @@ class ComponentController < ApplicationController
   def show
     render json: Component.find(params["id"])
   end
+  # create does not work, how to get relationship to user?
   def create
     render json: Component.create(
       image: params["image"], 
@@ -17,6 +18,4 @@ class ComponentController < ApplicationController
       user: params["user_id"]
     )
   end
-  def update
-    render json: Component.upd
 end
