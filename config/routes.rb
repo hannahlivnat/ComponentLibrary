@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   get '/', to: 'component#index'
   get'/component/:id', to: 'component#show'
-  post '/component/', to: 
-'component#create'
+  post '/component/', to: 'component#new'
   put '/component/:id', to: 'component#update'
   delete '/component/:id', to: 'component#destroy'
 
   get '/user', to: 'user#index'
   get '/user/:username', to: 'user#show'
   post '/user', to: 'user#new'
-  delete '/user/:id', to: 'user#delete'
 end
