@@ -1,5 +1,7 @@
 #rails prefers plural for the controller
 class ComponentController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   # ROUTES
   def index
     render json: Component.all
@@ -14,7 +16,7 @@ class ComponentController < ApplicationController
       image: params["image"], 
       title: params["title"], 
       description: params["description"], 
-      code_bock: params["code_block"], 
+      code_block: params["code_block"], 
       tags: params["tags"], 
       public: params["public"], 
       user: user
