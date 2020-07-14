@@ -8,14 +8,15 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        currentUser: {},
+        current_user: {},
         display: "nouserpresent",
-        components: []
+        components: [],
+        user_components: []
       };
   }
   
   getComponents = () => {
-    const url = '/api/v1/components'
+    const url = '/component'
     axios.get(url).then(
       (response) => {
         console.log(response.data);
