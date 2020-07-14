@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   # ROUTES
   def index
     render json: User.all
@@ -7,7 +8,6 @@ class UserController < ApplicationController
   def show
     render json: User.find_by(user_name: params["username"])
   end
-  #new does not work
   def new
     #test whether user is valid first with .valid?
     render json: User.create(

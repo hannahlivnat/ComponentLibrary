@@ -9,7 +9,6 @@ class ComponentController < ApplicationController
   def show
     render json: Component.find(params["id"])
   end
-  # new does not work
   def new
     user = User.find_by(user_name: 'testuser')
     render json: Component.create(
@@ -21,6 +20,11 @@ class ComponentController < ApplicationController
       public: params["public"], 
       user: user
     )
+  end
+  def destroy
+    component = Component.find(params["id"]);
+    component.destroy
+    render json: Component.all
   end
   def update
   end
