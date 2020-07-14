@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/user', to: 'user#index'
   get '/user/:username', to: 'user#show'
   post '/user', to: 'user#new'
+  delete '/user/:id', to: 'user#destroy'
 end

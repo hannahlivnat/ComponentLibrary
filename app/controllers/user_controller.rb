@@ -18,6 +18,11 @@ class UserController < ApplicationController
       password: params["password"], 
     )
   end
+  def destroy
+    user_to_destroy = User.find(params["id"])
+    user_to_destroy.destroy
+    render json: "User Deleted"
+  end
 
   #need to create logout and login route with authentication to 
   #assign current_user to state
