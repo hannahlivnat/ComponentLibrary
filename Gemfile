@@ -19,6 +19,9 @@ gem 'react-rails'
 #serialize json data to make it look nicer
 gem 'active_model_serializers'
 
+#active record
+gem 'activerecord', '~> 5.0', '>= 5.0.0.1'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
