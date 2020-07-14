@@ -25,13 +25,15 @@ class UserController < ApplicationController
   end
   def update 
     user_to_update = User.find(params["id"])
-    render json: user_to_update.update(
+    user_to_update.update(
       first_name: params["first_name"], 
       last_name: params["last_name"], 
       image: params["image"], 
       user_name: params["user_name"], 
       password: params["password"], 
     )
+
+    render json: User.find_by(user_name: params["user_name"] )
   end
 
   #need to create logout and login route with authentication to 

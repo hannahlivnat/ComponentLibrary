@@ -39,6 +39,6 @@ class ComponentController < ApplicationController
       user: user
     )
 
-    render json: Component.all
+    render json: Component.find(params["id"])
   end
 end
