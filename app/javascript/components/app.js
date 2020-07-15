@@ -28,12 +28,6 @@ class App extends Component {
       }
     )
   }
-  
-  //changeTagsToArray = () => {
-  //  const tags = "[\"button\", \"form button\", \"login\"]";
-  //  tags.splice(0, - 2);
-  //  console.log(tags);
-  //}
     
   loadUserComponents = () => {
     this.setState({
