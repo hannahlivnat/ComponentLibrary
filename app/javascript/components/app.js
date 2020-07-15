@@ -9,7 +9,7 @@ class App extends Component {
       super(props);
       this.state = {
         current_user: {},
-        display: "nouserpresent",
+        display: "userpresent",
         components: [],
         user_components: []
       };
@@ -21,10 +21,24 @@ class App extends Component {
       (response) => {
         console.log(response.data);
         this.setState({
-          components: response.data.components
+          components: response.data
+        }, () => {
+          console.log('State.Components is', this.state.components);
         })
       }
     )
+  }
+  
+  //changeTagsToArray = () => {
+  //  const tags = "[\"button\", \"form button\", \"login\"]";
+  //  tags.splice(0, - 2);
+  //  console.log(tags);
+  //}
+    
+  loadUserComponents = () => {
+    this.setState({
+      user_components: [...this.state.current_user.components]
+    })
   }
 
   componentDidMount() {
@@ -36,17 +50,21 @@ class App extends Component {
   };
 
   render = () => {
+    
     return (
-      <div className="containerdiv">
-        <div className="main-section">
-            {this.state.display === "userpresent" ? (
-                <UserPresentPage changedisplay={this.changeDisplay} />
-            ) : (
-                <NoUserPresentPage changedisplay={this.changeDisplay} />
-            )}
+        <div className="containerdiv">
+            <div className="main-section">
+                {this.state.display === "userpresent" ? (
+                    <UserPresentPage
+                        changedisplay={this.changeDisplay}
+                        components={this.state.components}
+                    />
+                ) : (
+                    <NoUserPresentPage changedisplay={this.changeDisplay} />
+                )}
+            </div>
+            <Footer />
         </div>
-        <Footer />
-      </div>
     );
   };
 }

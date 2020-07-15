@@ -26,6 +26,7 @@ html, body {
   }
 }
 
+
 ul {
   list-style-type: none;
 }
@@ -112,4 +113,23 @@ ul {
 .userpresent {
   @include hundredeverything;
   display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 5% 90% 5%;
+  grid-gap: 10px;
+  grid-template-areas: 
+  "navbar navbar navbar"
+  " . main . ";
+
+  nav {
+    grid-area: navbar;
+    justify-content: space-evenly;
+  }
+
+  .user-main-section {
+    grid-area: main;
+    
+    .card {
+      margin: 1rem;
+    }
+  }
 }

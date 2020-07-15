@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Nav from './nav'
-import DisplayComponent from './displaycomponents'
+import DisplayComponents from './displaycomponents'
 import Tags from '../userpresent/tags'
+import UserProfile from '../userpresent/userprofile'
 
 class UserPresentPage extends Component {
   constructor(props) {
@@ -12,11 +13,15 @@ class UserPresentPage extends Component {
   }
   
   render = () => {
+
     return (
       <div className="userpresent">
         <Nav />
-        {/*(this.state.display === "home") ? 
-        <DisplayComponent /> */}
+        <div className="user-main-section">
+            {(this.state.display === "home") ?
+            <DisplayComponents components={this.props.components} /> : <UserProfile />
+            }
+        </div>
       </div>
     );
   }

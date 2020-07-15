@@ -3,13 +3,11 @@ import React, { Component } from "react";
 class Nav extends Component {
   render = () => {
     return (
-    <nav>
-        <p>Home Image</p>
-        <div>search component</div>
-        <div className="button-section">
-            <button className="btn">+</button>
-            <button className="btn">Account</button>
-        </div>
+    <nav className="nav">
+        <p className="nav-link">Home Image</p>
+        <div className="nav-link">search component</div>
+        <p className="nav-link">+</p>
+        <p className="nav-link">Account</p>
     </nav>
     );
   }
