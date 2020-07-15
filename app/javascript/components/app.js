@@ -5,62 +5,76 @@ import Footer from "../components/footer";
 import axios from 'axios';
 
 class App extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        current_user: {},
-        display: "userpresent",
-        components: [],
-        user_components: []
-      };
+    constructor(props) {
+        super(props);
+        this.state = {
+            current_user: {},
+            display: "userpresent",
+            components: [],
+            user_components: [],
+        };
+    }
+
+    //COMPONENT ROUTES
+
+    //INDEX
+    getComponents = () => {
+        const url = "/component";
+        axios.get(url).then((response) => {
+            console.log(response.data);
+            this.setState(
+                {
+                    components: response.data,
+                },
+                () => {
+                    console.log("State.Components is", this.state.components);
+                }
+            );
+        });
+    };
+    componentDidMount() {
+        this.getComponents();
+    }
+
+  //NEW
+  newComponent = (body) => {
+    console.log("new component route connected!");
+    //axios.post('/component/', {
+    //  image: body.image,
+    //  title: body.title,
+    //  description: 
+    //})
   }
   
-  getComponents = () => {
-    const url = '/component'
-    axios.get(url).then(
-      (response) => {
-        console.log(response.data);
+  
+    loadUserComponents = () => {
         this.setState({
-          components: response.data
-        }, () => {
-          console.log('State.Components is', this.state.components);
-        })
-      }
-    )
-  }
-    
-  loadUserComponents = () => {
-    this.setState({
-      user_components: [...this.state.current_user.components]
-    })
-  }
+            user_components: [...this.state.current_user.components],
+        });
+    };
 
-  componentDidMount() {
-    this.getComponents();
-  }
-  
-  changeDisplay = (str) => {
-    this.setState({ display: str });
-  };
+    changeDisplay = (str) => {
+        this.setState({ display: str });
+    };
 
-  render = () => {
-    
-    return (
-        <div className="containerdiv">
-            <div className="main-section">
-                {this.state.display === "userpresent" ? (
-                    <UserPresentPage
-                        changedisplay={this.changeDisplay}
-                        components={this.state.components}
-                    />
-                ) : (
-                    <NoUserPresentPage changedisplay={this.changeDisplay} />
-                )}
+    render = () => {
+        return (
+            <div className="containerdiv">
+                <div className="main-section">
+                    {this.state.display === "userpresent" ? (
+                      <UserPresentPage
+                          changedisplay={this.changeDisplay}
+                          components={this.state.components}
+                          newcomponent={this.newComponent}
+                      />
+                    ) : (
+                        <NoUserPresentPage changedisplay={this.changeDisplay} />
+                    )}
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
-    );
-  };
+        );
+    };
 }
 
 export default App;
