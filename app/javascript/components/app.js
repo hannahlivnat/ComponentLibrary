@@ -26,6 +26,14 @@ class App extends Component {
         };
     }
 
+    //NOT WORKING - COME BACK TO THIS
+    //changeFormMessage = (message) => {
+    //  this.setState({
+    //    newformmessage: message
+    //  })
+    //  setTimeout(this.setState({ newformmessage: "" }), 10000);
+    //}
+
     //COMPONENT ROUTES
 
     //INDEX
@@ -45,7 +53,10 @@ class App extends Component {
     };
 
     componentDidMount() {
-        this.getComponents();
+      this.getComponents();
+      this.setState({
+        newformmessage: null
+      })
     }
 
   //NEW
@@ -60,24 +71,24 @@ class App extends Component {
       public: body.public,
       user: this.state.current_user
     }).then((response)=> {
-      this.setState({components: response.data})
-    }, ()=> {
       this.setState({
-        newformmessage: "Your component has been filed back in the library!"
-      })
+          components: response.data,
+      });
+      this.changeFormMessage("Your component has been filed in the library!")
     })
   }
   
   
-    loadUserComponents = () => {
-        this.setState({
-            user_components: [...this.state.current_user.components],
-        });
-    };
+  loadUserComponents = () => {
+      this.setState({
+          user_components: [...this.state.current_user.components],
+      });
+  };
 
-    changeDisplay = (str) => {
-        this.setState({ display: str });
-    };
+  changeDisplay = (str) => {
+      this.setState({ display: str });
+  };
+
 
     render = () => {
         return (

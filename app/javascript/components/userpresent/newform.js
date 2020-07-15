@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class NewForm extends Component {
+
+  clearForm = () => {
+    this.newform.reset();
+  }
   
   createComponent = (event) => {
       event.preventDefault();
@@ -29,6 +33,7 @@ class NewForm extends Component {
           }, () => {
             console.log(this.state.newComponent);
             this.props.newcomponent(this.state.newComponent);
+            this.clearForm();
           }
       );
   };
@@ -37,7 +42,7 @@ class NewForm extends Component {
       const { newformmessage } = this.props; 
       return (
           <div className="new-component-form">
-              <form onSubmit={this.createComponent}>
+              <form onSubmit={this.createComponent} ref={el => this.newform = el}>
                   <h2>Create a New Component</h2>
                   <div className="input-group mb-3">
                       <input
@@ -102,11 +107,7 @@ class NewForm extends Component {
 
                   <input type="submit" value="Create New Component" />
               </form>
-              {(newformmessage) ? 
               <div className="newform-messages"> {newformmessage} </div>
-              : 
-              null
-              }
           </div>
       );
   };
