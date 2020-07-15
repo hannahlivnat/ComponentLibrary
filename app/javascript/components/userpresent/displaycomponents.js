@@ -19,8 +19,20 @@ class DisplayComponents extends Component{
       <Tags />
       <div className="card-group">
       {components.map((component, index) => {
-        return <Card component={component} key={index} display={this.state.display} changedisplay={this.changeCardDisplay}/>
-      })}
+        const isPublic = component.public;
+        return (
+        <React.Fragment>
+            {isPublic ? (
+                <Card
+                    component={component}
+                    key={index}
+                    display={this.state.display}
+                    changedisplay={this.changeCardDisplay}
+                />
+            ) : null}
+        </React.Fragment>
+        );
+        })}
       </div>
     
     </div>;

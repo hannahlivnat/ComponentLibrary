@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
 class NewForm extends Component {
-
+  //clear form on submit
   clearForm = () => {
     this.newform.reset();
   }
   
+  //create object out of form values and send to create component in database
   createComponent = (event) => {
       event.preventDefault();
       //change public to boolean value
