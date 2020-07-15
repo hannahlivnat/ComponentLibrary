@@ -44,9 +44,6 @@ class App extends Component {
             this.setState(
                 {
                     components: response.data,
-                },
-                () => {
-                    console.log("State.Components is", this.state.components);
                 }
             );
         });
@@ -100,6 +97,7 @@ class App extends Component {
                           components={this.state.components}
                           newcomponent={this.newComponent}
                           newformmessage={this.state.newformmessage}
+                          currentuser={this.state.current_user}
                       />
                     ) : (
                         <NoUserPresentPage changedisplay={this.changeDisplay} />

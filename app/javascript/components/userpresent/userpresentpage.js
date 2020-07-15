@@ -10,7 +10,7 @@ class UserPresentPage extends Component {
   }
 
   render = () => {
-    const { components, newcomponent, newformmessage } = this.props;
+    const { components, newcomponent, newformmessage, currentuser } = this.props;
     return (
         <Router>
             <div className="userpresent">
@@ -93,7 +93,7 @@ class UserPresentPage extends Component {
                       <NewForm newcomponent={newcomponent} newformmessage={newformmessage}/>
                   </Route>
                   <Route path="/userprofile">
-                <UserProfile component={components}/>
+                <UserProfile components={components} currentuser={currentuser}/>
                   </Route>
                 </div>
             </Switch>

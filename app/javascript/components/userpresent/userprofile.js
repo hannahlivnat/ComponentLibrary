@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import DisplayOneComponent from "./displayonecomponent";
+import Tags from './tags';
+import Card from './card';
 
 class UserProfile extends Component {
     state = {
         display: "all-components",
+        carddisplay: "card",
         component: {}
     }
     
-    changeCardDisplay = () => {
+    changeDisplay = () => {
         (this.state.display === 'all-components') ?
         this.setState({ carddisplay: 'displayone' })
             :
@@ -23,29 +26,40 @@ class UserProfile extends Component {
     
     render = () => {
     //take user-components as props
-    const { components } = this.props;
+    const { components, currentuser } = this.props;
+    console.log(currentuser.id);
     return (
-        <div className="user-profile">
+        <React.Fragment>
             {this.state.display === "all-components" ? (
-                <div class="card-group">
-                    {components.map((component, index) => {
-                        return (
-                            <Card
-                                component={component}
-                                index={index}
-                                display={this.state.display}
-                                changedisplay={this.changeCardDisplay}
-                            />
-                        );
-                    })}
+                <div className="user-profile">
+                    <div className="card-group">
+                        {components.map((component, index) => {
+                            console.log(component.user_id);
+                            return (
+                            //change this to current user after login set up
+                            (component.user_id == 1) ?
+                                <Card
+                                    component={component}
+                                    index={index}
+                                    display={this.state.carddisplay}
+                                    changedisplay={this.changeDisplay}
+                                />
+                             : null )
+                        })}
+                    </div>
                 </div>
-            ) : (
-                <DisplayOneComponent changecomponent={this.changeComponentToDisplay}/>
+                )
+                :   (
+                <div className="user-profile">
+                <DisplayOneComponent
+                    changecomponent={this.changeComponentToDisplay}
+                />
+                <Tags />
+                </div>
             )}
-            <Tags />
-        </div>
-    );
-    }
-}
+        </React.Fragment>
+    )}
+};
+
 
 export default UserProfile;

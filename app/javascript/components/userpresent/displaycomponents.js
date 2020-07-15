@@ -14,7 +14,7 @@ class DisplayComponents extends Component{
   }
   
   render = () => {
-    const { components } = this.props;
+    const { components} = this.props;
     return <div className="displaycomponents">
       <Tags />
       <div className="card-group">
@@ -39,4 +39,4 @@ class DisplayComponents extends Component{
   }
 }
 
-export default DisplayComponents
+export default DisplayComponents;
