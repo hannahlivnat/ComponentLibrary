@@ -6,47 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(first_name:"Hannah", last_name: "Livnat", user_name: "testing-user", password: "testing-password", image: '../app/assets/images/meshi.jpg')
-user1 = User.create(first_name:"Daniel", last_name: "Livnat", user_name: "daniellivnat", password: "daniellivnat", image: '../app/assets/images/meshi.jpg')
+user = User.create(first_name:"Test", last_name: "User", user_name: "testuser1", password: "testuser", image: '/assets/meshi.jpg')
+
 
 component = Component.create(
   title: "Button", 
   description: "This is a button", 
-  image: "../app/assets/images/login-button.png", 
+  image: "/assets/login-button.png", 
   code_block: "   
     .btn-small {
       background-color: hsl(211, 82, 40);
       display: block;
       margin: 0 auto 1vh auto;
     }", 
+  language: "JavaScript",
   tags: ["button", "form button", "login"], 
   public: true, 
   user: user)
 
-component2 = Component.create(
-  title: "Button", 
-  description: "This is a button", 
-  image: "../app/assets/images/login-button.png", 
-  code_block: "   
-    .btn-small {
-      background-color: hsl(211, 82, 40);
-      display: block;
-      margin: 0 auto 1vh auto;
-    }", 
-  tags: ["button", "form button", "login"], 
-  public: true, 
-  user: user1)
-
-component3 = Component.create(
-  title: "Login Form", 
-  description: "This is a button for a login form", 
-  image: "../app/assets/images/login-button.png", 
-  code_block: "   
-    .btn-small {
-      background-color: hsl(211, 82, 40);
-      display: block;
-      margin: 0 auto 1vh auto;
-    }", 
-  tags: ["button", "form button", "login"], 
-  public: true, 
-  user: user1)
