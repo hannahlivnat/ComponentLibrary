@@ -8,10 +8,21 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            current_user: {},
+            current_user: {
+                id: 2,
+                first_name: "Daniel",
+                last_name: "Livnat",
+                image:
+                    "https://images.unsplash.com/photo-1590536527363-f11dce09bbe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+                user_name: "daniellivnat",
+                password_digest:
+                    "$2a$12$SHa1dCdzalWvKScZJ7RV8.KcWREMgCN1/7j4qnTzBdYQtbigjg9s.",
+                components: [],
+            },
             display: "userpresent",
             components: [],
             user_components: [],
+            newformmessage: null,
         };
     }
 
@@ -32,6 +43,7 @@ class App extends Component {
             );
         });
     };
+
     componentDidMount() {
         this.getComponents();
     }
@@ -45,11 +57,14 @@ class App extends Component {
       description: body.description,
       code_block: body.code_block,
       tags: body.tags,
-      public: body.public
+      public: body.public,
+      user: this.state.current_user
     }).then((response)=> {
       this.setState({components: response.data})
     }, ()=> {
-      console.log('route went through');
+      this.setState({
+        newformmessage: "Your component has been filed back in the library!"
+      })
     })
   }
   
@@ -73,6 +88,7 @@ class App extends Component {
                           changedisplay={this.changeDisplay}
                           components={this.state.components}
                           newcomponent={this.newComponent}
+                          newformmessage={this.state.newformmessage}
                       />
                     ) : (
                         <NoUserPresentPage changedisplay={this.changeDisplay} />

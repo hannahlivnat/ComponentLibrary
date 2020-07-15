@@ -8,9 +8,9 @@ class UserPresentPage extends Component {
   constructor(props) {
     super(props)
   }
-  
+
   render = () => {
-    const { components, newcomponent } = this.props;
+    const { components, newcomponent, newformmessage } = this.props;
     return (
         <Router>
             <div className="userpresent">
@@ -90,7 +90,7 @@ class UserPresentPage extends Component {
                       />
                   </Route>
                   <Route path="/newcomponent">
-                      <NewForm newcomponent={newcomponent}/>
+                      <NewForm newcomponent={newcomponent} newformmessage={newformmessage}/>
                   </Route>
                   <Route path="/userprofile">
                 <UserProfile component={components}/>

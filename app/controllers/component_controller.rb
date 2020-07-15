@@ -37,7 +37,7 @@ class ComponentController < ApplicationController
       code_block: params["code_block"], 
       tags: params["tags"], 
       public: params["public"], 
-      user: user
+      user: params["user"]
     )
 
     render json: Component.find(params["id"])
