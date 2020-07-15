@@ -38,12 +38,19 @@ class App extends Component {
 
   //NEW
   newComponent = (body) => {
-    console.log("new component route connected!");
-    //axios.post('/component/', {
-    //  image: body.image,
-    //  title: body.title,
-    //  description: 
-    //})
+    //console.log("new component route connected!");
+    axios.post('/component/', {
+      image: body.image,
+      title: body.title,
+      description: body.description,
+      code_block: body.code_block,
+      tags: body.tags,
+      public: body.public
+    }).then((response)=> {
+      this.setState({components: response.data})
+    }, ()=> {
+      console.log('route went through');
+    })
   }
   
   

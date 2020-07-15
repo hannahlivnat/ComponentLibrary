@@ -11,7 +11,7 @@ class ComponentController < ApplicationController
   end
   def new
     user = User.find_by(user_name: 'testuser')
-    render json: Component.create(
+    Component.create(
       image: params["image"], 
       title: params["title"], 
       description: params["description"], 
@@ -20,6 +20,7 @@ class ComponentController < ApplicationController
       public: params["public"], 
       user: user
     )
+    render json: Component.all
   end
   def destroy
     component = Component.find(params["id"]);

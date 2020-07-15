@@ -4,11 +4,15 @@ class NewForm extends Component {
   
     createComponent = (event) => {
         event.preventDefault();
+        //change public to boolean value
         let isPublic = true;
         (this.public.value === "public") ?
         isPublic = true
         : 
         isPublic = false
+
+        //change tags to array
+        let tagsArray = this.tags.value.split(',');
 
         this.setState(
             {
@@ -19,7 +23,7 @@ class NewForm extends Component {
                     code_block: this.code_block.value,
                     public: isPublic,
                     language: this.language.value,
-                    tags: this.tags.value,
+                    tags: tagsArray
                     //user: this.state.current_user
                 }
             }, () => {
