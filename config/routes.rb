@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   post '/user', to: 'user#new'
   delete '/user/:id', to: 'user#destroy'
   put '/user/:id', to: 'user#update'
+
+  get "*path" => redirect("/")
+
 end
