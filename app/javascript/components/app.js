@@ -64,14 +64,12 @@ class App extends Component {
     categorizeTags = () => {
         //Object.entries transforms an object into an array of nested arrays
         const tags = Object.entries(this.state.tags);
-        console.log(tags);
         //.sort b - a will sort array from highest to lowest based on each nested array's element at index 1
         const sorted_tags = tags.sort((a, b) => b[1] - a[1]);
         const top_five = sorted_tags.slice(0, 5);
-        console.log(top_five);
         this.setState ({
           top_tags: top_five
-        },() => {console.log(this.state.top_tags);})
+        })
     };
 
     componentDidMount() {

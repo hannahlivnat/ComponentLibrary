@@ -6,12 +6,21 @@ class Tags extends Component {
     }
 
     render = () => {
-        const { tags } = this.props
-        return <div className="tags">
-          {tags.map((tag) => {
-            return <li>{tag[0]}</li>
-          })}
-        </div>;
+        const { tags, changefilter } = this.props
+        return (
+            <div className="tags">
+                <ul>
+                    {tags.map((tag, index) => {
+                        return (
+                            <li key={index} onClick={changefilter}>
+                                {tag[0]}
+                            </li>
+                        );
+                    })}
+                    <li onClick={changefilter}>All</li>
+                </ul>
+            </div>
+        );
     };
 }
 
