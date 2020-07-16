@@ -21,9 +21,8 @@ class App extends Component {
             },
             display: "userpresent",
             components: [],
-            tags: [],
+            tags: {},
             newformmessage: null,
-
         };
     }
 
@@ -42,90 +41,110 @@ class App extends Component {
         const url = "/component";
         axios.get(url).then((response) => {
             console.log(response.data);
+            this.setState({
+                components: response.data,
+            });
+        });
+    };
+
+    //Get tags and count
+    getTags = () => {
+        axios.get("/component/tags").then((response) => {
+          this.setState(
+              {
+                tags: response.data,
+              },
+              () => {
+                  console.log(this.state.tags);
+              }
+          );
+        });
+    };
+
+    componentDidMount() {
+        this.getComponents();
+        this.getTags();
+        this.setState({
+            newformmessage: null,
+        });
+    }
+
+    //NEW
+    newComponent = (body) => {
+        //console.log("new component route connected!");
+        axios
+            .post("/component/", {
+                image: body.image,
+                title: body.title,
+                description: body.description,
+                code_block: body.code_block,
+                tags: body.tags,
+                public: body.public,
+                user: this.state.current_user,
+            })
+            .then((response) => {
+                this.setState({
+                    components: response.data,
+                });
+                this.changeFormMessage(
+                    "Your component has been filed in the library!"
+                );
+            });
+    };
+
+    //update component
+    updateComponent = (body, id) => {
+        axios
+            .put("/component/" + id, {
+                image: body.image,
+                title: body.title,
+                description: body.description,
+                code_block: body.code_block,
+                tags: body.tags,
+                public: body.public,
+            })
+            .then((response) => {
+                this.setState({
+                    components: response.data,
+                });
+            });
+    };
+
+    //delete component
+    deleteComponent = (event) => {
+        event.preventDefault();
+        const id = parseInt(event.target.getAttribute("id"));
+        axios.delete("/component/" + id).then((response) => {
             this.setState(
                 {
                     components: response.data,
+                },
+                () => {
+                    window.location.href = "/userprofile";
                 }
             );
         });
     };
 
-    componentDidMount() {
-      this.getComponents();
-      this.setState({
-        newformmessage: null
-      })
-    }
-
-  //NEW
-  newComponent = (body) => {
-    //console.log("new component route connected!");
-    axios.post('/component/', {
-      image: body.image,
-      title: body.title,
-      description: body.description,
-      code_block: body.code_block,
-      tags: body.tags,
-      public: body.public,
-      user: this.state.current_user
-    }).then((response)=> {
-      this.setState({
-          components: response.data,
-      });
-      this.changeFormMessage("Your component has been filed in the library!")
-    })
-  }
-
-  //update component
-  updateComponent = (body, id) => {
-    axios.put('/component/' + id, {
-      image: body.image,
-      title: body.title,
-      description: body.description,
-      code_block: body.code_block,
-      tags: body.tags,
-      public: body.public
-    }).then((response) => {
-      this.setState({
-        components: response.data
-      });
-    })
-  }
-
-  //delete component
-  deleteComponent = (event) => {
-    event.preventDefault();
-    const id = parseInt(event.target.getAttribute('id'));
-    axios.delete('/component/' + id).then((response) => {
-      this.setState({
-        components: response.data
-      }, () => {
-        window.location.href = "/userprofile";
-
-      })
-
-    })
-  }
-
-  changeDisplay = (str) => {
-      this.setState({ display: str });
-  };
-
+    changeDisplay = (str) => {
+        this.setState({ display: str });
+    };
 
     render = () => {
         return (
             <div className="containerdiv">
                 <div className="main-section">
                     {this.state.display === "userpresent" ? (
-                      <UserPresentPage
-                          changedisplay={this.changeDisplay}
-                          components={this.state.components}
-                          newcomponent={this.newComponent}
-                          newformmessage={this.state.newformmessage}
-                          currentuser={this.state.current_user}
-                          update={this.updateComponent}
-                          destroy={this.deleteComponent}
-                      />
+                        <UserPresentPage
+                            changedisplay={this.changeDisplay}
+                            components={this.state.components}
+                            newcomponent={this.newComponent}
+                            newformmessage={this.state.newformmessage}
+                            currentuser={this.state.current_user}
+                            update={this.updateComponent}
+                            destroy={this.deleteComponent}
+                            tags={this.state.tags}
+                        />
                     ) : (
                         <NoUserPresentPage changedisplay={this.changeDisplay} />
                     )}

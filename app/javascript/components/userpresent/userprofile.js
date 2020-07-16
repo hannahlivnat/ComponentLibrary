@@ -4,10 +4,14 @@ import Tags from './tags';
 import Card from './card';
 
 class UserProfile extends Component {
-    state = {
-        display: "all-components",
-        carddisplay: "card",
-        component: {}
+    constructor(props) {
+    super(props);
+
+        this.state = {
+            display: "all-components",
+            carddisplay: "card",
+            component: {},
+        };
     }
     
     changeDisplay = () => {
@@ -33,7 +37,7 @@ class UserProfile extends Component {
 
     render = () => {
     //take user-components as props
-    const { components, currentuser, update, destroy } = this.props;
+    const { components, update, destroy, tags } = this.props;
     return (
         <React.Fragment>
             {this.state.display === "all-components" ? (
@@ -62,7 +66,7 @@ class UserProfile extends Component {
                 <div className="user-profile">
                 <DisplayOneComponent component={this.state.component} update={update} destroy={destroy}
                 />
-                <Tags />
+                <Tags tags = {tags}/>
                 </div>
             )}
         </React.Fragment>

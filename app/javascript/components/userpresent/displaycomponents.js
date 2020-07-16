@@ -4,8 +4,13 @@ import Tags from './tags';
 
 
 class DisplayComponents extends Component{
-  state = { display: "card" }
-  
+    constructor(props) {
+        super(props);
+
+        this.state = {
+          display: "card"
+        }
+    }  
   changeCardDisplay = () => {
     (this.state.display === "card") ? 
       this.setState({ display: "code" })
@@ -14,14 +19,14 @@ class DisplayComponents extends Component{
   }
   
   render = () => {
-    const { components} = this.props;
+    const { components, tags} = this.props;
     return <div className="displaycomponents">
-      <Tags />
+      <Tags tags={tags}/>
       <div className="card-columns">
       {components.map((component, index) => {
         const isPublic = component.public;
         return (
-        <React.Fragment>
+        <React.Fragment key={index}>
             {isPublic ? (
                 <Card
                     component={component}
