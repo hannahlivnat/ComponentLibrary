@@ -20,7 +20,7 @@ class NewForm extends Component {
       let tags = this.tags.value.toUpperCase();
       tags = tags.trim();
       let tagsArray = tags.split(',');
-
+      tagsArray = tagsArray.map((tag) => tag.trim());
       this.setState(
           {
               newComponent: {
