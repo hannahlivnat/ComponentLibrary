@@ -35,7 +35,7 @@ class UserProfile extends Component {
     
     render = () => {
     //take user-components as props
-    const { components, currentuser } = this.props;
+    const { components, currentuser, update } = this.props;
     return (
         <React.Fragment>
             {this.state.display === "all-components" ? (
@@ -62,7 +62,7 @@ class UserProfile extends Component {
                 )
                 :   (
                 <div className="user-profile">
-                <DisplayOneComponent component={this.state.component}
+                <DisplayOneComponent component={this.state.component} update={update}
                 />
                 <Tags />
                 </div>

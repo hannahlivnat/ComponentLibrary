@@ -18,7 +18,7 @@ class ComponentController < ApplicationController
       code_block: params["code_block"], 
       tags: params["tags"], 
       public: params["public"], 
-      user: user
+      user: params["user"]
     )
     render json: Component.all
   end
@@ -29,7 +29,6 @@ class ComponentController < ApplicationController
   end
   def update
     component_to_update = Component.find(params["id"])
-    user = User.find_by(user_name: 'testuser')
     component_to_update.update(
       image: params["image"], 
       title: params["title"], 
@@ -37,9 +36,9 @@ class ComponentController < ApplicationController
       code_block: params["code_block"], 
       tags: params["tags"], 
       public: params["public"], 
-      user: params["user"]
+      user: component_to_update.user
     )
 
-    render json: Component.find(params["id"])
+    render json: Component.all
   end
 end

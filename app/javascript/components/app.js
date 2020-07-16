@@ -82,6 +82,22 @@ class App extends Component {
       });
   };
 
+  //update component
+  updateComponent = (body, id) => {
+    axios.put('/component/' + id, {
+      image: body.image,
+      title: body.title,
+      description: body.description,
+      code_block: body.code_block,
+      tags: body.tags,
+      public: body.public
+    }).then((response) => {
+      this.setState({
+        components: response.data
+      });
+    })
+  }
+
   changeDisplay = (str) => {
       this.setState({ display: str });
   };
@@ -98,6 +114,7 @@ class App extends Component {
                           newcomponent={this.newComponent}
                           newformmessage={this.state.newformmessage}
                           currentuser={this.state.current_user}
+                          update={this.updateComponent}
                       />
                     ) : (
                         <NoUserPresentPage changedisplay={this.changeDisplay} />
