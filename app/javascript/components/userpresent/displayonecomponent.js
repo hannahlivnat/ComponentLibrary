@@ -43,6 +43,7 @@ class DisplayOneComponent extends Component {
                     this.state.updateComponent,
                     this.props.component.id
                 );
+                window.location.href = "/";
                 this.clearForm();
             }
         );
