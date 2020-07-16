@@ -5,15 +5,18 @@ import { CopyBlock, dracula } from "react-code-blocks";
 class DisplayOneComponent extends Component{
   state = {display: 'component'}
 
-  changeDisplay = (str) => {
-    this.setState({display: str})
+  changeDisplay = (event) => {
+    event.preventDefault();
+
+    console.log(event.target.value);
+    this.setState({display: event.target.value})
   }
  
   render = () => {
     const { component } = this.props;
     return (
         <React.Fragment>
-            (this.state.display === 'component') ?
+            {(this.state.display === 'component') ?
             <div className="display-one-component">
                 <div className="codeBlock">
                     <img
@@ -26,12 +29,19 @@ class DisplayOneComponent extends Component{
                         theme={dracula}
                     />
                 </div>
-                <div className="display-one-details"></div>
-            </div>
+                <div className="display-one-details">
+                  <h2>{component.title}</h2>
+                  <p>{component.description}</p>
+                </div>
+                <div className="edit-component">
+                  <button>Delete</button>
+                  <button value="editform" onClick={this.changeDisplay}>Edit</button>
+                </div>
+              </div>
             :
             <form>
                 <h2>Edit Form</h2>
-                <button onClick={this.changeDisplay('component')}>Go Back</button>
+                <button value="component" onClick={this.changeDisplay}>Go Back</button>
                 <div className="input-group mb-3">
                     <input
                         type="text"
@@ -95,7 +105,7 @@ class DisplayOneComponent extends Component{
                 </div>
 
                 <input type="submit" value="Edit Component" />
-            </form>
+            </form>}
         </React.Fragment>
     );
   }

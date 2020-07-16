@@ -12,19 +12,19 @@ class UserProfile extends Component {
     
     changeDisplay = () => {
         (this.state.display === 'all-components') ?
-        this.setState({ carddisplay: 'displayone' })
+        this.setState({ display: 'displayone' })
             :
-        this.setState({carddisplay: 'all-components'})            
+        this.setState({display: 'all-components'})            
     }
     
+
     changeComponentToDisplay = (event) => {
-        console.log('hello, you made it');
+        event.preventDefault();
         const id = event.target.getAttribute('id');
         const components = this.props.components;
         const selectedComponent = components.find(x => x.id === parseInt(id));
-        console.log(id);
-        console.log(selectedComponent);
-        this.setState = ({
+        
+        this.setState({
             component: selectedComponent,
             display: 'displayone'
         }, () => {
@@ -62,7 +62,7 @@ class UserProfile extends Component {
                 )
                 :   (
                 <div className="user-profile">
-                <DisplayOneComponent component={component}
+                <DisplayOneComponent component={this.state.component}
                 />
                 <Tags />
                 </div>
