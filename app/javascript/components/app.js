@@ -98,6 +98,21 @@ class App extends Component {
     })
   }
 
+  //delete component
+  deleteComponent = (event) => {
+    event.preventDefault();
+    const id = parseInt(event.target.getAttribute('id'));
+    axios.delete('/component/' + id).then((response) => {
+      this.setState({
+        components: response.data
+      }, () => {
+        window.location.href = "/userprofile";
+
+      })
+
+    })
+  }
+
   changeDisplay = (str) => {
       this.setState({ display: str });
   };
@@ -115,6 +130,7 @@ class App extends Component {
                           newformmessage={this.state.newformmessage}
                           currentuser={this.state.current_user}
                           update={this.updateComponent}
+                          destroy={this.deleteComponent}
                       />
                     ) : (
                         <NoUserPresentPage changedisplay={this.changeDisplay} />

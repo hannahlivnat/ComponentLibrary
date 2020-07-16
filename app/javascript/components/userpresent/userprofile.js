@@ -17,7 +17,6 @@ class UserProfile extends Component {
         this.setState({display: 'all-components'})            
     }
     
-
     changeComponentToDisplay = (event) => {
         event.preventDefault();
         const id = event.target.getAttribute('id');
@@ -31,11 +30,10 @@ class UserProfile extends Component {
             console.log(this.state.component);
         })
     }
-    
-    
+
     render = () => {
     //take user-components as props
-    const { components, currentuser, update } = this.props;
+    const { components, currentuser, update, destroy } = this.props;
     return (
         <React.Fragment>
             {this.state.display === "all-components" ? (
@@ -62,7 +60,7 @@ class UserProfile extends Component {
                 )
                 :   (
                 <div className="user-profile">
-                <DisplayOneComponent component={this.state.component} update={update}
+                <DisplayOneComponent component={this.state.component} update={update} destroy={destroy}
                 />
                 <Tags />
                 </div>

@@ -50,7 +50,7 @@ class DisplayOneComponent extends Component {
     };
 
     render = () => {
-        const { component } = this.props;
+        const { component, destroy } = this.props;
         return (
             <React.Fragment>
                 {this.state.display === "component" ? (
@@ -71,7 +71,7 @@ class DisplayOneComponent extends Component {
                             <p>{component.description}</p>
                         </div>
                         <div className="edit-component">
-                            <button>Delete</button>
+                            <button id={component.id} onClick={destroy}>Delete</button>
                             <button
                                 value="editform"
                                 onClick={this.changeDisplay}
