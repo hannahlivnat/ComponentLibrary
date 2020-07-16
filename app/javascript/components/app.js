@@ -22,6 +22,7 @@ class App extends Component {
             display: "userpresent",
             components: [],
             tags: {},
+            top_tags: [],
             newformmessage: null,
         };
     }
@@ -40,7 +41,6 @@ class App extends Component {
     getComponents = () => {
         const url = "/component";
         axios.get(url).then((response) => {
-            console.log(response.data);
             this.setState({
                 components: response.data,
             });
@@ -50,23 +50,33 @@ class App extends Component {
     //Get tags and count
     getTags = () => {
         axios.get("/component/tags").then((response) => {
-          this.setState(
-              {
-                tags: response.data,
-              },
-              () => {
-                  console.log(this.state.tags);
-              }
-          );
+            this.setState(
+                {
+                    tags: response.data,
+                },
+                () => {
+                    this.categorizeTags();
+                }
+            );
         });
+    };
+
+    categorizeTags = () => {
+        //Object.entries transforms an object into an array of nested arrays
+        const tags = Object.entries(this.state.tags);
+        console.log(tags);
+        //.sort b - a will sort array from highest to lowest based on each nested array's element at index 1
+        const sorted_tags = tags.sort((a, b) => b[1] - a[1]);
+        const top_five = sorted_tags.slice(0, 5);
+        console.log(top_five);
+        this.setState ({
+          top_tags: top_five
+        },() => {console.log(this.state.top_tags);})
     };
 
     componentDidMount() {
         this.getComponents();
         this.getTags();
-        this.setState({
-            newformmessage: null,
-        });
     }
 
     //NEW
@@ -86,9 +96,9 @@ class App extends Component {
                 this.setState({
                     components: response.data,
                 });
-                this.changeFormMessage(
-                    "Your component has been filed in the library!"
-                );
+                //this.changeFormMessage(
+                //    "Your component has been filed in the library!"
+                //);
             });
     };
 
@@ -143,7 +153,7 @@ class App extends Component {
                             currentuser={this.state.current_user}
                             update={this.updateComponent}
                             destroy={this.deleteComponent}
-                            tags={this.state.tags}
+                            tags={this.state.top_tags}
                         />
                     ) : (
                         <NoUserPresentPage changedisplay={this.changeDisplay} />

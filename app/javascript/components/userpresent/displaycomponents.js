@@ -19,7 +19,7 @@ class DisplayComponents extends Component{
   }
   
   render = () => {
-    const { components, tags} = this.props;
+    const { components, tags } = this.props;
     return <div className="displaycomponents">
       <Tags tags={tags}/>
       <div className="card-columns">
