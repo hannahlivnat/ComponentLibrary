@@ -128,8 +128,16 @@ ul {
   .user-main-section {
     grid-area: main;
     
-    .card {
-      margin: 1rem;
-    }
   }
+}
+
+.card-columns {
+  flex-flow: row wrap;
+
+  .card {
+    margin: 1rem;
+    min-width: 300px;
+    max-width: 500px;
+  }
+
 }

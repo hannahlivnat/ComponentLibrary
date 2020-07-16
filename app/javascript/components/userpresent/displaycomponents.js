@@ -17,7 +17,7 @@ class DisplayComponents extends Component{
     const { components} = this.props;
     return <div className="displaycomponents">
       <Tags />
-      <div className="card-group">
+      <div className="card-columns">
       {components.map((component, index) => {
         const isPublic = component.public;
         return (

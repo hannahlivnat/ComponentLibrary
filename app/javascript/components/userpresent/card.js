@@ -2,17 +2,28 @@ import React, { Component } from "react";
 import { CopyBlock, dracula } from "react-code-blocks";
 
 class Card extends Component {
-  
-  
+  state = {
+    carddisplay: 'card'
+  }
+
+  changeCardDisplay = () => {
+    this.state.carddisplay === 'card' ?
+    this.setState({carddisplay: 'code'}) :
+    this.setState({carddisplay: 'card'})
+  }
+ 
+
   render = () => {
-    const { component, index, changedisplay, display } = this.props  
+    const { component, index, display, changecomponent } = this.props  
     return (
         <div key={index} className="card">
-            {display === "card" ? (
+            {this.state.carddisplay === "card" ? (
             <div>
-                <img onClick={changedisplay} className="card-img-top" src={component.image} />
+                <img onClick={this.changeCardDisplay} className="card-img-top" src={component.image} />
                 <div className="card-body">
                     <h5 className="card-title">{component.title}</h5>
+                    {(display === 'user') ? <button id={component.id} onClick={changecomponent}> Edit </button>
+                    : null} 
                     <p className="card-text">{component.description}</p>
 
                     <div className="card-footer">
@@ -26,7 +37,7 @@ class Card extends Component {
             </div>
             ) : (
             <div>
-                <div className="card-header">{component.title} <p onClick={changedisplay}>Back</p></div>
+                <div className="card-header">{component.title} <p onClick={this.changeCardDisplay}>Back</p></div>
                 <div className="card-body">
                   <p className="card-text">{component.description}</p>
                   <CopyBlock
