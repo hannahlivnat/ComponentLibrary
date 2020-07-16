@@ -21,8 +21,9 @@ class App extends Component {
             },
             display: "userpresent",
             components: [],
-            user_components: [],
+            tags: [],
             newformmessage: null,
+
         };
     }
 
@@ -74,13 +75,6 @@ class App extends Component {
       this.changeFormMessage("Your component has been filed in the library!")
     })
   }
-  
-  
-  loadUserComponents = () => {
-      this.setState({
-          user_components: [...this.state.current_user.components],
-      });
-  };
 
   //update component
   updateComponent = (body, id) => {

@@ -41,4 +41,20 @@ class ComponentController < ApplicationController
 
     render json: Component.all
   end
+  def frequenttags
+    tags_hash = {};
+    components = Component.all
+    components.each do |component|
+      component.tags.each do |tag|
+        #if tag is not in array, add tag and count 1
+        if tags_hash.has_key? :"#{tag}" 
+          tags_hash[:"#{tag}"] = tags_hash[:"#{tag}"] + 1
+        #if tag is already in, add to count
+        else
+          tags_hash[:"#{tag}"] = 1
+        end
+      end
+    end
+  render json: tags_hash
+  end
 end

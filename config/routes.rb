@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #API 
   # component routes
   get '/component', to: 'component#index'
+  get '/component/tags', to: 'component#frequenttags'
   get'/component/:id', to: 'component#show'
   post '/component/', to: 'component#new'
   put '/component/:id', to: 'component#update'
