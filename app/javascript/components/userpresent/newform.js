@@ -18,6 +18,7 @@ class NewForm extends Component {
 
       //change tags to array
       let tags = this.tags.value.toUpperCase();
+      tags = tags.trim();
       let tagsArray = tags.split(',');
 
       this.setState(

@@ -24,8 +24,10 @@ class DisplayOneComponent extends Component {
         this.public.value === "public" ? (isPublic = true) : (isPublic = false);
 
         //change tags to array
-        let tagsArray = this.tags.value.split(",");
-
+        let tags = this.tags.value.toUpperCase();
+        let tagsArray = tags.split(",");
+        tagsArray = tagsArray.map(tag => tag.trim());
+        console.log(tagsArray);
         this.setState(
             {
                 updateComponent: {

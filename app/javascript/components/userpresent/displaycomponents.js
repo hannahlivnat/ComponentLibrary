@@ -6,19 +6,19 @@ import Tags from './tags';
 class DisplayComponents extends Component{
   state = {
     display: "card",
-    filter: "false"
+    //filter: "false"
   }
  
 
-  changeFilter = (event) => {
-    event.preventDefault;
-    let new_value = "";
-    event.target.innerHTML === "All" ?
-      new_value = "false" :
-      new_value = event.target.innerHTML;
-    console.log(new_value);
-    this.setState({filter: new_value})
-  }
+  //changeFilter = (event) => {
+  //  event.preventDefault;
+  //  let new_value = "";
+  //  event.target.innerHTML === "All" ?
+  //    new_value = "false" :
+  //    new_value = event.target.innerHTML;
+  //  console.log(new_value);
+  //  this.setState({filter: new_value})
+  //}
 
   changeCardDisplay = () => {
     (this.state.display === "card") ? 
@@ -28,13 +28,13 @@ class DisplayComponents extends Component{
   }
   
   render = () => {
-    const { components, tags } = this.props;
+    const { components, tags, filter, changeFilter } = this.props;
     return <div className="displaycomponents">
-      <Tags tags={tags} changefilter={this.changeFilter}/>
+      <Tags tags={tags} changefilter={changeFilter}/>
       <div className="card-columns">
       {components.map((component, index) => {
         const isPublic = component.public;
-        const filter = this.state.filter;
+        //const filter = this.state.filter;
         return (
             <React.Fragment key={index}>
                 {isPublic ? (
@@ -46,7 +46,7 @@ class DisplayComponents extends Component{
                             display={this.state.display}
                             changedisplay={this.changeCardDisplay}
                         />
-                        : (component.tags.includes(filter || filter.toLowerCase() || filter.toUpperCase())) ?
+                        : (component.tags.includes(filter)) ?
                         <Card
                             component={component}
                             key={index}

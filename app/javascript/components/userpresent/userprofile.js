@@ -40,18 +40,19 @@ class UserProfile extends Component {
                 <div className="user-profile">
                     <div className="card-columns">
                         {components.map((component, index) => {
-                            console.log(component.user_id);
                             return (
                                 //change this to current user after login set up
                                 component.user_id == 1 ? (
-                                    <Card
-                                        component={component}
-                                        index={index}
-                                        display="user"
-                                        changecomponent={
-                                            this.changeComponentToDisplay
-                                        }
-                                    />
+                                    <React.Fragment key={index}>
+                                        <Card
+                                            component={component}
+                                            index={index}
+                                            display="user"
+                                            changecomponent={
+                                                this.changeComponentToDisplay
+                                            }
+                                        />
+                                    </React.Fragment>
                                 ) : null
                             );
                         })}
@@ -62,7 +63,6 @@ class UserProfile extends Component {
                 <div className="user-profile">
                 <DisplayOneComponent component={this.state.component} update={update} destroy={destroy}
                 />
-                <Tags tags = {tags}/>
                 </div>
             )}
         </React.Fragment>
