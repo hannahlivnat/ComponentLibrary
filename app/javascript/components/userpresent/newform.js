@@ -17,7 +17,8 @@ class NewForm extends Component {
       isPublic = false
 
       //change tags to array
-      let tagsArray = this.tags.value.split(',');
+      let tags = this.tags.value.toUpperCase();
+      let tagsArray = tags.split(',');
 
       this.setState(
           {

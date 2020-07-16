@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Tags extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render = () => {
         const { tags, changefilter } = this.props
         return (

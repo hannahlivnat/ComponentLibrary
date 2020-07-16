@@ -18,7 +18,7 @@ class ComponentController < ApplicationController
       code_block: params["code_block"], 
       tags: params["tags"], 
       public: params["public"], 
-      user: params["user"]
+      user: user
     )
     render json: Component.all
   end

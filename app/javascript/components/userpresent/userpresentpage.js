@@ -5,9 +5,6 @@ import UserProfile from '../userpresent/userprofile'
 import NewForm from '../userpresent/newform'
 
 class UserPresentPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render = () => {
     const { components, newcomponent, newformmessage, currentuser, update, destroy, tags } = this.props;

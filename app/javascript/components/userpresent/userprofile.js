@@ -4,15 +4,11 @@ import Tags from './tags';
 import Card from './card';
 
 class UserProfile extends Component {
-    constructor(props) {
-    super(props);
-
-        this.state = {
-            display: "all-components",
-            carddisplay: "card",
-            component: {},
-        };
-    }
+    state = {
+        display: "all-components",
+        carddisplay: "card",
+        component: {},
+    };
     
     changeDisplay = () => {
         (this.state.display === 'all-components') ?

@@ -41,7 +41,7 @@ class Card extends Component {
                                             width="1em"
                                             height="1em"
                                             viewBox="0 0 16 16"
-                                            class="bi bi-unlock-fill"
+                                            className="bi bi-unlock-fill"
                                             fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
@@ -59,7 +59,7 @@ class Card extends Component {
                                             width="1em"
                                             height="1em"
                                             viewBox="0 0 16 16"
-                                            class="bi bi-lock-fill"
+                                            className="bi bi-lock-fill"
                                             fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
