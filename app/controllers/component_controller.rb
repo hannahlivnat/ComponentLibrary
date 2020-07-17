@@ -13,7 +13,6 @@ class ComponentController < ApplicationController
     user = User.find(params["user_id"])
     Component.create(
       image: params["image"], 
-      title: params["title"], 
       description: params["description"], 
       code_block: params["code_block"], 
       tags: params["tags"], 
@@ -31,7 +30,6 @@ class ComponentController < ApplicationController
     component_to_update = Component.find(params["id"])
     component_to_update.update(
       image: params["image"], 
-      title: params["title"], 
       description: params["description"], 
       code_block: params["code_block"], 
       tags: params["tags"], 

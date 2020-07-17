@@ -51,15 +51,6 @@ class NewForm extends Component {
                       <input
                           type="text"
                           className="form-control"
-                          placeholder="Title"
-                          ref={(input) => (this.title = input)}
-                          aria-label="Title"
-                      />
-                  </div>
-                  <div className="input-group mb-3">
-                      <input
-                          type="text"
-                          className="form-control"
                           placeholder="Description"
                           ref={(input) => (this.description = input)}
                           aria-label="Description"

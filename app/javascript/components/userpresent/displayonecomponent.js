@@ -69,7 +69,6 @@ class DisplayOneComponent extends Component {
                             />
                         </div>
                         <div className="display-one-details">
-                            <h2>{component.title}</h2>
                             <p>{component.description}</p>
                         </div>
                         <div className="edit-component">
@@ -91,16 +90,6 @@ class DisplayOneComponent extends Component {
                         <button value="component" onClick={this.changeDisplay}>
                             Go Back
                         </button>
-                        <div className="input-group mb-3">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Title"
-                                ref={(input) => (this.title = input)}
-                                aria-label="Title"
-                                defaultValue={component.title}
-                            />
-                        </div>
                         <div className="input-group mb-3">
                             <input
                                 type="text"

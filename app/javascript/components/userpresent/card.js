@@ -25,7 +25,6 @@ class Card extends Component {
                         src={component.image}
                     />
                     <div className="card-body">
-                        <h5 className="card-title">{component.title}</h5>
                         {display === "user" ? (
                             <React.Fragment>
                                 <button
