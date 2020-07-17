@@ -33,7 +33,7 @@ class UserProfile extends Component {
 
     render = () => {
     //take user-components as props
-    const { components, update, destroy, tags } = this.props;
+    const { components, update, destroy, currentuser } = this.props;
     return (
         <React.Fragment>
             {this.state.display === "all-components" ? (
@@ -42,7 +42,7 @@ class UserProfile extends Component {
                         {components.map((component, index) => {
                             return (
                                 //change this to current user after login set up
-                                component.user_id == 1 ? (
+                                parseInt(component.user_id) === parseInt(currentuser.id) ? (
                                     <React.Fragment key={index}>
                                         <Card
                                             component={component}
@@ -53,7 +53,11 @@ class UserProfile extends Component {
                                             }
                                         />
                                     </React.Fragment>
-                                ) : null
+                                ) : 
+                                <React.Fragment>
+                                    <h1>You Don't Have Any Posts Yet!</h1>
+                                    <p>Let's start filing some components.</p>
+                                </React.Fragment>
                             );
                         })}
                     </div>

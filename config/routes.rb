@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   #index route
   get '/', to: 'home#index'
   #API 
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   # user routes
   get '/user', to: 'user#index'
   get '/user/:username', to: 'user#show'
+  post '/user/validate', to: 'user#validate'
   post '/user', to: 'user#new'
   delete '/user/:id', to: 'user#destroy'
   put '/user/:id', to: 'user#update'

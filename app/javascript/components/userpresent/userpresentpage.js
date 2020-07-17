@@ -141,7 +141,6 @@ class UserPresentPage extends Component {
                                                 currentuser={currentuser}
                                                 update={update}
                                                 destroy={destroy}
-                                                tags={tags}
                                             />
                                         </React.Fragment>
                                     </Route>

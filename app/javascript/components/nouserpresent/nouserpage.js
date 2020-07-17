@@ -17,6 +17,7 @@ class NoUserPresentPage extends Component {
     };
 
     render() {
+        const { signup, errormessage, authenticateuser } = this.props;
         return (
             <div className="nouser-section">
                 <header className="row pt-4">
@@ -29,9 +30,9 @@ class NoUserPresentPage extends Component {
                     </div>
                     <div className="col-md-6 justify-content-center">
                         {this.state.display === "login" ? (
-                            <Login changedisplay={this.changeDisplay} />
+                            <Login changedisplay={this.changeDisplay} errormessage = {errormessage} authenticateuser = {authenticateuser}/>
                         ) : (
-                            <Signup changedisplay={this.changeDisplay} />
+                            <Signup changedisplay={this.changeDisplay} signup = {signup} errormessage = {errormessage}/>
                         )}
                     </div>
                 </div>

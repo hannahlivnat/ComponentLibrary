@@ -6,29 +6,46 @@ class UserController < ApplicationController
     render json: User.all
   end
   def show
-    render json: User.find_by(user_name: params["username"])
+    render json: User.find_by(user_name: params[:user]["username"])
   end
   def new
-    #test whether user is valid first with .valid?
-    render json: User.create(
-      first_name: params["first_name"], 
-      last_name: params["last_name"], 
-      image: params["image"], 
-      user_name: params["user_name"], 
-      password: params["password"], 
+    @user = User.new(
+      first_name: params["first_name"],
+      last_name: params["last_name"],
+      user_name: params["user_name"],
+      password: params["password"],
+      password_confirmation: params["password_confirmation"]
+
     )
+
+    if @user.save
+      render json: @user
+    else 
+      render json: { :errors => @user.errors.full_messages }, :status => 422
+    end
+
   end
+
+  def validate
+    @logging_in_user = User.find_by(user_name: params["user_name"])
+      if @logging_in_user.authenticate(params[:user]["password_digest"])
+        render json: @logging_in_user
+      else    
+        render json: { messages: ["Username or Password is Incorrect"]}, :status => 422
+    end
+  end
+
   def destroy
     user_to_destroy = User.find(params["id"])
     user_to_destroy.destroy
     render json: "User Deleted"
   end
+
   def update 
     user_to_update = User.find(params["id"])
     user_to_update.update(
       first_name: params["first_name"], 
       last_name: params["last_name"], 
-      image: params["image"], 
       user_name: params["user_name"], 
       password: params["password"], 
     )
@@ -36,20 +53,10 @@ class UserController < ApplicationController
     render json: User.find_by(user_name: params["user_name"] )
   end
 
-  #need to create logout and login route with authentication to 
-  #assign current_user to state
-  #def login
-  #  logging_in_user = User.find_by(user_name: params["user_name"])
-  #  logging_in_user.authenticate
+  private 
 
-  #  #would true work if it returns an object
-  #  if(true)
-  #    current_user = logging_in_user
-  #  else 
-  #    puts "Your username or password is not correct"
-  #end
+  def get_user
+    @user = User.find(params[:id])
+  end
 
-  #def logout  
-  #  current_user = nil
-  #end
 end

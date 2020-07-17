@@ -7,35 +7,62 @@ import axios from 'axios';
 class App extends React.PureComponent {
 
     state = {
-        current_user: {
-            id: 2,
-            first_name: "Daniel",
-            last_name: "Livnat",
-            image:
-                "https://images.unsplash.com/photo-1590536527363-f11dce09bbe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            user_name: "daniellivnat",
-            password_digest:
-                "$2a$12$SHa1dCdzalWvKScZJ7RV8.KcWREMgCN1/7j4qnTzBdYQtbigjg9s.",
-            components: [],
-        },
-        display: "userpresent",
+        current_user: {},
+        display: "nouserpresent",
         components: [],
         tags: {},
         top_tags: [],
-        newformmessage: null,
+        usererror: null
     };
 
+    //USER ROUTES
+    //signup
+    createUser = (body) => {
+        axios.post("/user", {
+            first_name: body.first_name,
+            last_name: body.last_name,
+            user_name: body.user_name,
+            password: body.password,
+            password_confirmation: body.password_confirmation
+        }).then((response) => {
+            this.setState({
+                current_user: response.data,
+                display: "userpresent", 
+                usererror: ""
+            })
+        })
+        .catch(error => {
+            if(error.response) {
+                this.setState({usererror: error.response.data.errors[0]})
+            }
+        })
+    }
 
-    //NOT WORKING - COME BACK TO THIS
-    //changeFormMessage = (message) => {
-    //  this.setState({
-    //    newformmessage: message
-    //  })
-    //  setTimeout(this.setState({ newformmessage: "" }), 10000);
-    //}
+    //login route
+    authenticateUser = (body) => {
+        axios
+            .post("/user/validate", {
+                user_name: body.user_name,
+                password_digest: body.password,
+            })
+            .then((response) => {
+                this.setState(
+                    {
+                        current_user: response.data,
+                        display: "userpresent",
+                        usererror: "",
+                    },
+                    () => {
+                        console.log(this.state.current_user);
+                    }
+                );
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
     //COMPONENT ROUTES
-
     //INDEX
     getComponents = () => {
         const url = "/component";
@@ -153,7 +180,12 @@ class App extends React.PureComponent {
                             tags={this.state.top_tags}
                         />
                     ) : (
-                        <NoUserPresentPage changedisplay={this.changeDisplay} />
+                        <NoUserPresentPage 
+                            changedisplay={this.changeDisplay} 
+                            signup={this.createUser} 
+                            authenticateuser={this.authenticateUser} 
+                            errormessage={this.state.usererror}
+                        />
                     )}
                 </div>
                 <Footer />
