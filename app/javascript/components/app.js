@@ -62,6 +62,14 @@ class App extends React.PureComponent {
             });
     }
 
+    //logout user
+    logout = () => {
+        this.setState({
+            current_user: {},
+            display: "nouserpresent"
+        });
+    }
+
     //COMPONENT ROUTES
     //INDEX
     getComponents = () => {
@@ -178,6 +186,7 @@ class App extends React.PureComponent {
                             update={this.updateComponent}
                             destroy={this.deleteComponent}
                             tags={this.state.top_tags}
+                            logout={this.logout}
                         />
                     ) : (
                         <NoUserPresentPage 

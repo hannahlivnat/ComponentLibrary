@@ -40,6 +40,7 @@ class UserPresentPage extends Component {
             update,
             destroy,
             tags,
+            logout
         } = this.props;
         return (
             <React.Fragment>
@@ -112,6 +113,7 @@ class UserPresentPage extends Component {
                                     </svg>
                                 </Link>
                             </li>
+                            <li className="nav-link" onClick={logout}>Log Out</li>
                         </nav>
                         <React.Fragment>
                             <Switch>
