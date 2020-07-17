@@ -53,11 +53,7 @@ class UserProfile extends Component {
                                             }
                                         />
                                     </React.Fragment>
-                                ) : 
-                                <React.Fragment>
-                                    <h1>You Don't Have Any Posts Yet!</h1>
-                                    <p>Let's start filing some components.</p>
-                                </React.Fragment>
+                                ) : null
                             );
                         })}
                     </div>

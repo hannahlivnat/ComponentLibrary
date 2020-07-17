@@ -10,7 +10,7 @@ class ComponentController < ApplicationController
     render json: Component.find(params["id"])
   end
   def new
-    user = User.find_by(user_name: 'testuser')
+    user = User.find(params["user_id"])
     Component.create(
       image: params["image"], 
       title: params["title"], 

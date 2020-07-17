@@ -114,7 +114,7 @@ class App extends React.PureComponent {
                 code_block: body.code_block,
                 tags: body.tags,
                 public: body.public,
-                user: this.state.current_user,
+                user_id: this.state.current_user.id,
             })
             .then((response) => {
                 this.setState({
