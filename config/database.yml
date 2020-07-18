@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['DATABASE_URL'] %>
-  #username: ComponentLibrary
-  #password: <%= ENV['COMPONENTLIBRARY_DATABASE_PASSWORD'] %>
+  database: ComponentLibrary_production
+  username: ComponentLibrary
+  password: <%= ENV['COMPONENTLIBRARY_DATABASE_PASSWORD'] %>
