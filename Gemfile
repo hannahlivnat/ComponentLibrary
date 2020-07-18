@@ -22,6 +22,9 @@ gem 'active_model_serializers'
 #cloudinary for image storage
 gem 'cloudinary'
 
+#carrierwave for integration of image uploads with Active Record
+gem 'carrierwave'
+
 #active record
 gem 'activerecord', '~> 6.0', '>= 6.0.3.2'
 
