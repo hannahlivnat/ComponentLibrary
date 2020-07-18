@@ -51,9 +51,6 @@ class App extends React.PureComponent {
                         current_user: response.data,
                         display: "userpresent",
                         usererror: "",
-                    },
-                    () => {
-                        console.log(this.state.current_user);
                     }
                 );
             })
