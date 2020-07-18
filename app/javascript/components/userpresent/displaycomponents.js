@@ -32,8 +32,9 @@ class DisplayComponents extends Component{
     return <div className="displaycomponents">
       <Tags tags={tags} changefilter={changeFilter}/>
       <div className="card-columns">
+
       {components.map((component, index) => {
-        const isPublic = component.public;
+        const isPublic = component.public
         //const filter = this.state.filter;
         return (
             <React.Fragment key={index}>
@@ -56,11 +57,11 @@ class DisplayComponents extends Component{
                     </React.Fragment>
                 ) : null}
             </React.Fragment>
-        );
-        })}; 
+        )
+        })} 
       </div>
     
-    </div>;
+    </div>
   }
 }
 
