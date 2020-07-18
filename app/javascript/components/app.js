@@ -117,7 +117,6 @@ class App extends React.PureComponent {
         axios
             .post("/component/", {
                 image: body.image,
-                title: body.title,
                 description: body.description,
                 code_block: body.code_block,
                 tags: body.tags,

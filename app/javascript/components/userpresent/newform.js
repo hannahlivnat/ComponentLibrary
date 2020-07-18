@@ -25,7 +25,6 @@ class NewForm extends Component {
           {
               newComponent: {
                   image: this.image.value,
-                  title: this.title.value,
                   description: this.description.value,
                   code_block: this.code_block.value,
                   public: isPublic,
