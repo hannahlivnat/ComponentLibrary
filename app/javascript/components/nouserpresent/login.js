@@ -13,7 +13,6 @@ class Login extends Component {
         password: password
       }
     }, () => {
-        console.log(this.state.loggingInUser);
         this.props.authenticateuser(this.state.loggingInUser)})
   }
 
