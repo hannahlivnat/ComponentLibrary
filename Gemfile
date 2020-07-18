@@ -19,6 +19,9 @@ gem 'react-rails'
 #serialize json data to make it look nicer
 gem 'active_model_serializers'
 
+#cloudinary for image storage
+gem 'cloudinary'
+
 #active record
 gem 'activerecord', '~> 6.0', '>= 6.0.3.2'
 
