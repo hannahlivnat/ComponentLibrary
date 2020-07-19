@@ -157,9 +157,6 @@ class App extends React.PureComponent {
             this.setState(
                 {
                     components: response.data,
-                },
-                () => {
-                    window.location.href = "/userprofile";
                 }
             );
         });

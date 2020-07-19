@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import DisplayComponents from './displaycomponents'
 import UserProfile from '../userpresent/userprofile'
 import NewForm from '../userpresent/newform'
@@ -32,6 +33,11 @@ class UserPresentPage extends Component {
 
     }
 
+    handleDestroy = (event) => {
+        this.props.destroy(event);  
+        document.querySelector('#home-link').click();
+    }
+
     render = () => {
         const {
             components,
@@ -49,9 +55,9 @@ class UserPresentPage extends Component {
                     <div className="userpresent">
                         <header>
                         <nav className="nav row">
-                            <li className="nav-link col-6">
+                            <li className="nav-link col-6" >
                                 <Link to="/">
-                                 <h4 >TheLibrary</h4>
+                                 <h4 id="home-link">TheLibrary</h4>
                                 </Link>
                             </li>
                             <li className="nav-link col-2">
@@ -98,7 +104,7 @@ class UserPresentPage extends Component {
                                                 components={components}
                                                 currentuser={currentuser}
                                                 update={update}
-                                                destroy={destroy}
+                                                destroy={this.handleDestroy}
                                             />
                                         </React.Fragment>
                                     </Route>
