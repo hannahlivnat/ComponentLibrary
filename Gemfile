@@ -16,6 +16,9 @@ gem 'webpacker', '~> 4.0'
 #react-rails
 gem 'react-rails'
 
+#jquery
+gem 'jquery-rails'
+
 #bootstrap 
 gem 'bootstrap', '~> 4.5'
 
