@@ -51,7 +51,7 @@ class Login extends Component {
                   />
               </div>
               <div className="row justify-content-sm-center">
-                  <button type="submit" className="btn btn-primary col-sm-6">
+                  <button type="submit" className="btn btn-primary col-sm-4">
                       Login
                   </button>
               </div>

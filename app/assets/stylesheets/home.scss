@@ -126,7 +126,7 @@ ul {
 
   header {
     grid-area: header;
-    background: url('https://images.unsplash.com/photo-1569407228235-9a744831a150?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60'), #ccc;
+    background: linear-gradient(to right, rgba(30, 75, 115, .7), rgba(30, 75, 115, .7)), url('https://images.unsplash.com/photo-1569407228235-9a744831a150?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
     background-position: center center; 
     display: grid;
     grid-template-columns: 100%;
@@ -190,6 +190,7 @@ ul {
 
     img {
       width: 100%;
+      cursor: pointer;
     }
 
     .card-footer {
@@ -233,7 +234,7 @@ ul {
         margin: auto;
         cursor: pointer;
 
-        &:hover {
+        &:hover, &:active {
           background-color: lighten($light-blue, 20%);
         }
       }
@@ -241,4 +242,44 @@ ul {
     }
 
   }
+}
+
+// NEW FORM
+
+.new-component-form {
+  width: 95%;
+  padding-bottom: 10px;
+  margin: 3rem auto;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+
+  .form-header {
+    background-color: $light-blue;
+
+    h4 {
+      font-size: 2rem;
+      letter-spacing: .02rem;
+      color: #fff;  
+      text-align: center;
+    }
+  }
+
+  .form-group {
+    padding-top: 2rem;
+  }
+
+  input {
+    outline: none;
+  }
+  
+  textarea {
+    outline: none;
+    min-height: 200px;
+  }
+
+  button {
+    background-color: $light-blue;
+  }
+
+
 }

@@ -84,14 +84,14 @@ class Card extends Component {
             ) : (
                 <div>
                     <div className="card-header">
-                        {component.title}{" "}
                         <p onClick={this.changeCardDisplay}>Back</p>
+
+                        <p className="card-text">{component.description}</p>
                     </div>
                     <div className="card-body">
-                        <p className="card-text">{component.description}</p>
                         <CopyBlock
                             text={component.code_block}
-                            language="JavaScript"
+                            language={component.language}
                             theme={dracula}
                         />
                     </div>
