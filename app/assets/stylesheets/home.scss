@@ -144,3 +144,37 @@ ul {
   }
 
 }
+
+.tags {
+  margin: 2rem auto;
+
+  ul {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+
+    li {
+
+      p {
+        background-color: $light-blue;
+        color: #fff;
+        letter-spacing: .02rem;
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 24px;
+        box-shadow: 2px 2px 4px #ccc;
+        width: 50%;
+        padding: .5rem 1rem;
+        margin: auto;
+        cursor: pointer;
+
+        &:hover {
+          background-color: lighten($light-blue, 20%);
+        }
+      }
+
+    }
+
+  }
+}

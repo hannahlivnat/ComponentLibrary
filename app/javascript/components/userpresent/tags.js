@@ -8,12 +8,12 @@ class Tags extends Component {
                 <ul>
                     {tags.map((tag, index) => {
                         return (
-                            <li key={index} onClick={changefilter}>
-                                {tag[0]}
+                            <li key={index} onClick={changefilter} className="chips chips-lg">
+                                <p>{tag[0]}</p>
                             </li>
                         );
                     })}
-                    <li onClick={changefilter}>All</li>
+                    <li onClick={changefilter}> <p> All </p> </li>
                 </ul>
             </div>
         );
