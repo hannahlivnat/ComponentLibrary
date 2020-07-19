@@ -55,4 +55,5 @@ class ComponentController < ApplicationController
     }
   render json: tags_hash
   end
+
 end

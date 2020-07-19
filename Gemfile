@@ -16,14 +16,17 @@ gem 'webpacker', '~> 4.0'
 #react-rails
 gem 'react-rails'
 
+#bootstrap 
+gem 'bootstrap', '~> 4.5'
+
 #serialize json data to make it look nicer
 gem 'active_model_serializers'
 
-#cloudinary for image storage
-gem 'cloudinary'
-
 #carrierwave for integration of image uploads with Active Record
 gem 'carrierwave'
+
+#cloudinary for image storage
+gem 'cloudinary'
 
 #active record
 gem 'activerecord', '~> 6.0', '>= 6.0.3.2'

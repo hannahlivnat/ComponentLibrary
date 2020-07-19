@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class NewForm extends Component {
+
+
   //clear form on submit
   clearForm = () => {
     this.newform.reset();
@@ -39,11 +42,7 @@ class NewForm extends Component {
           }
       );
   };
-
-  fileListener = (event) => {
-    console.log(event);
-  }
-
+  
   render = () => {
       const { newformmessage } = this.props; 
       return (
@@ -84,13 +83,10 @@ class NewForm extends Component {
                       ></textarea>
                   </div>
                   <div className="input-group mb-3">
-                      <img src=" http://res.cloudinary.com/huagrzciy/image/upload/sample.jpg" id="img-preview" />
-
                       <input
-                          type="file"
-                          className="form-control file-upload"
-                          placeholder="Image SRC"
-                          onChange = {this.fileListener}
+                          type="text"
+                          className="form-control"
+                          placeholder="Image SRC "
                           ref={(input) => (this.image = input)}
                           aria-label="image src"
                       />

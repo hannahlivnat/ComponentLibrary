@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   put '/component/:id', to: 'component#update'
   delete '/component/:id', to: 'component#destroy'
 
+  # image uploading 
+ 
+
   # user routes
   get '/user', to: 'user#index'
   get '/user/:username', to: 'user#show'
