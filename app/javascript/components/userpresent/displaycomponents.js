@@ -28,9 +28,9 @@ class DisplayComponents extends Component{
   }
   
   render = () => {
-    const { components, tags, filter, changeFilter } = this.props;
+    const { components, tags, filter, changeFilter, changeToFalse } = this.props;
     return <div className="displaycomponents">
-      <Tags tags={tags} changefilter={changeFilter}/>
+      <Tags tags={tags} changefilter={changeFilter} changetofalse = {changeToFalse}/>
       <div className="card-columns">
 
       {components.map((component, index) => {

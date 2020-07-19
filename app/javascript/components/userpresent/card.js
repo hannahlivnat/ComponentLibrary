@@ -75,11 +75,9 @@ class Card extends Component {
                         <p className="card-text">{component.description}</p>
 
                         <div className="card-footer">
-                            <ul>
-                                {component.tags.map((tag, index) => {
-                                    return <li key={index}>{tag}</li>;
-                                })}
-                            </ul>
+                            {component.tags.map((tag, index) => {
+                                return <p key={index}>{tag}</p>;
+                            })}
                         </div>
                     </div>
                 </div>

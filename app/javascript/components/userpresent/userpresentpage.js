@@ -10,17 +10,19 @@ class UserPresentPage extends Component {
     };
 
     changeFilter = (event) => {
-        event.preventDefault;
+        event.preventDefault();
         let new_value = "";
-        event.target.innerHTML === "All"
-            ? (new_value = "false")
-            : (new_value = event.target.innerHTML);
+        new_value = event.target.innerHTML.toUpperCase();
         console.log(new_value);
         this.setState({ filter: new_value });
     };
 
+    changeFilterToFalse = () => {
+        this.setState({filter: "false"})
+    }
+
     changeFilterSearchBar = (event) => {
-        event.preventDefault;
+        event.preventDefault();
         let new_value = "";
         if (event.keyCode == 13) {
             event.target.value === ""
@@ -46,6 +48,7 @@ class UserPresentPage extends Component {
             <React.Fragment>
                 <Router>
                     <div className="userpresent">
+                        <header>
                         <nav className="nav">
                             <li className="nav-link">
                                 <Link to="/">
@@ -115,6 +118,7 @@ class UserPresentPage extends Component {
                             </li>
                             <li className="nav-link" onClick={logout}>Log Out</li>
                         </nav>
+                        </header>
                         <React.Fragment>
                             <Switch>
                                 <div className="user-main-section">
@@ -125,6 +129,7 @@ class UserPresentPage extends Component {
                                                 tags={tags}
                                                 filter={this.state.filter}
                                                 changeFilter={this.changeFilter}
+                                                changeToFalse = {this.changeFilterToFalse}
                                             />
                                         </React.Fragment>
                                     </Route>
