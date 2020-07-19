@@ -1,11 +1,17 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway&family=Ranchers');
+$Oswald: ('Oswald', sans-serif);
+$Raleway: ('Raleway', sans-serif);
+$Ranchers: ('Ranchers', cursive);
 
-//color
+// COLOR 
 $gray : hsl(43,28,82);
+$dark-gray: hsl(0,0,41);
 $light-blue: hsl(188, 41, 48);
 
-// mixins
+// MIXIN
 @mixin hundredeverything {
   height: 100%;
   width: 100%;
@@ -16,6 +22,30 @@ $light-blue: hsl(188, 41, 48);
   margin: 0;
 }
 
+@mixin headerfont ($color) {
+  font-family: $Ranchers;
+  font-size: 2.3rem;
+  color: $color;
+  letter-spacing: .03rem;
+}
+
+@mixin subheaderfont($color) {
+  font-family: $Oswald;
+  text-decoration: none;
+  font-size: 2rem;
+  color: $color;
+  letter-spacing: .02rem;
+}
+
+@mixin bodyfont ($color){
+  font-family: $Oswald;
+  text-decoration: none;
+  font-size: 1rem;
+  color: $color;
+  letter-spacing: .01rem;
+}
+
+// WHOLE PAGE LAYOUT
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -29,7 +59,6 @@ html, body {
   }
 }
 
-
 ul {
   list-style-type: none;
 }
@@ -37,7 +66,7 @@ ul {
 .containerdiv{
   @include hundredeverything;
   display: grid;
-  grid-template-rows: 1fr 50px;
+  grid-template-rows: 1fr 100px;
   grid-template-columns: 100%;
   grid-template-areas: 
   "main"
@@ -49,16 +78,26 @@ ul {
 
   footer {
     grid-area: footer;
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+
+    > p {
+      @include bodyfont(#ccc)
+      grid-area: paragraph;
+      margin: auto 10px;
+      text-align: right;
+    }
+
   }
 }
 
+// NO USER PRESENT STYLING
 .nouser-section {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 50px 1fr 200px;
+  grid-template-rows: 50px 1fr auto;
   grid-template-columns: 100%;
   grid-template-areas: 
   "header"
@@ -69,10 +108,8 @@ ul {
     grid-area: header;
 
     h4 {
+      @include headerfont($light-blue);
       padding-left: 3rem;
-      font-size: 2rem;
-      letter-spacing: .02rem;
-      color: $light-blue;
     }
   }
 
@@ -81,16 +118,66 @@ ul {
     width: 90%;
     margin: auto;
     grid: display;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .splash-section {
     display: grid;
     place-content: center;
+    padding-top: 4rem;
+
+    h2 {
+      @include subheaderfont($dark-gray);
+    }
+  }
+
+  .no-user-forms {
+    padding-top: 4rem;
+
+    h4 {
+      @include headerfont($light-blue);
+    }
+
+    label {
+      @include bodyfont($dark-gray);
+    }
+
+    a {
+      @include bodyfont(#000);
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {   
+        text-decoration: underline;
+        color: $light-blue;
+      }
+    }
+
+    button {
+      @include bodyfont(#fff);
+      background-color: $light-blue;
+      border: none;
+      outline: none;
+      box-shadow: 2px 2px 4px #ccc;
+
+      &:hover {
+        background-color: lighten($light-blue, 10%);
+      }
+
+      &:active {
+        box-shadow: inset 2px 2px 4px #ccc;
+        background-color: lighten($light-blue, 10%);
+      }
+    }
+
   }
 
   .bottom-banner {
     width: 100%;
     grid-area: banner;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     background-color: whitesmoke;
 
     ul, li {
@@ -104,9 +191,7 @@ ul {
       align-items: center;
 
       p {
-        color: $light-blue;
-        letter-spacing: .01rem;
-        font-size: 1.5rem;
+        @include subheaderfont($light-blue);
         text-transform: uppercase;
         margin-top: 1rem;
       }
@@ -114,6 +199,7 @@ ul {
   }
 }
 
+// USER PRESENT STYLING
 .userpresent {
   @include hundredeverything;
   display: grid;
@@ -135,23 +221,23 @@ ul {
     "nav"
     "search";
 
-
     nav {
       background-color: #fff;
       grid-area: nav;
 
       h4 {
-        padding-left: 3rem;
-        font-size: 2rem;
-        letter-spacing: .02rem;
-        color: $light-blue;
+        @include headerfont($light-blue);
+        padding-left: 1rem;
       }
 
       li, a {
-        font-size: 1rem;
-        letter-spacing: .02rem;
-        color: $light-blue;
+        @include bodyfont($light-blue)
         margin: auto;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -170,26 +256,21 @@ ul {
         color: #000;
       }
     }
-      
   }
 
   .user-main-section {
     grid-area: main;
-    
   }
 }
 
 .card-columns {
-  flex-flow: row wrap;
 
   .card {
     margin: 1rem;
-    min-width: 300px;
     max-width: 500px;
     position: relative;
 
     img {
-      width: 100%;
       cursor: pointer;
     }
 

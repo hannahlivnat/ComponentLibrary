@@ -123,6 +123,7 @@ class App extends React.PureComponent {
                 user_id: this.state.current_user.id,
             })
             .then((response) => {
+                console.log(response.data);
                 this.setState({
                     components: response.data,
                 });

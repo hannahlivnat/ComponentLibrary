@@ -22,7 +22,7 @@ class Login extends Component {
           <form className="px-4" onSubmit={this.createLoggedInUser}>
               <div className="row">
                   <h4 className="col-sm-8">Login</h4>
-                  <a className="col-sm-4 text-left" onClick={changedisplay}>
+                  <a className="col-sm-4 text-right" onClick={changedisplay}>
                       Register?
                   </a>
               </div>

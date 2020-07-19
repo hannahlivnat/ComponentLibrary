@@ -27,7 +27,7 @@ class Signup extends React.Component {
           <form className="px-4" onSubmit={this.createUserObject}>
               <div className="row">
                   <h4 className="col-sm-8">Register</h4>
-                  <a className="col-sm-4 text-left" onClick={changedisplay}>
+                  <a className="col-sm-4 text-right" onClick={changedisplay}>
                       Login?
                   </a>
               </div>

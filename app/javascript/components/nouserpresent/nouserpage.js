@@ -28,7 +28,7 @@ class NoUserPresentPage extends Component {
                         <h2>Stop Rewriting Code</h2>
                         <h2>File it in The Library</h2>
                     </div>
-                    <div className="col-md-6 justify-content-center">
+                    <div className="col-md-6 justify-content-center no-user-forms pt-4 pb-4">
                         {this.state.display === "login" ? (
                             <Login changedisplay={this.changeDisplay} errormessage = {errormessage} authenticateuser = {authenticateuser}/>
                         ) : (

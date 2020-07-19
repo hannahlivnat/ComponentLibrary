@@ -21,7 +21,7 @@ class Card extends Component {
                 <div>
                     <img
                         onClick={this.changeCardDisplay}
-                        className="card-img-top"
+                        className="card-img-top img-responsive"
                         src={component.image}
                     />
                     <div className="card-body">
