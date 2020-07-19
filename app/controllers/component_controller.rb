@@ -15,6 +15,7 @@ class ComponentController < ApplicationController
       image: params["image"], 
       description: params["description"], 
       code_block: params["code_block"], 
+      language: params["language"],
       tags: params["tags"], 
       public: params["public"], 
       user: user
@@ -32,6 +33,7 @@ class ComponentController < ApplicationController
       image: params["image"], 
       description: params["description"], 
       code_block: params["code_block"], 
+      language: params["language"],
       tags: params["tags"], 
       public: params["public"], 
       user: component_to_update.user

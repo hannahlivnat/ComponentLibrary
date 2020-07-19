@@ -30,8 +30,8 @@ class NewForm extends Component {
                   image: this.image.value,
                   description: this.description.value,
                   code_block: this.code_block.value,
-                  public: isPublic,
                   language: this.language.value,
+                  public: isPublic,
                   tags: tagsArray
                   //user: this.state.current_user
               }

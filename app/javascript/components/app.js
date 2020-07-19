@@ -117,6 +117,7 @@ class App extends React.PureComponent {
                 image: body.image,
                 description: body.description,
                 code_block: body.code_block,
+                language: body.language,
                 tags: body.tags,
                 public: body.public,
                 user_id: this.state.current_user.id,
@@ -125,9 +126,8 @@ class App extends React.PureComponent {
                 this.setState({
                     components: response.data,
                 });
-                //this.changeFormMessage(
-                //    "Your component has been filed in the library!"
-                //);
+                document.querySelector('#home-link').click();
+
             });
     };
 
@@ -139,6 +139,7 @@ class App extends React.PureComponent {
                 title: body.title,
                 description: body.description,
                 code_block: body.code_block,
+                language: body.language,
                 tags: body.tags,
                 public: body.public,
             })
@@ -146,6 +147,8 @@ class App extends React.PureComponent {
                 this.setState({
                     components: response.data,
                 });
+                document.querySelector('#user-profile').click();
+
             });
     };
 

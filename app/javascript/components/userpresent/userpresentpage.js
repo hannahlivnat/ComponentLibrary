@@ -65,8 +65,8 @@ class UserPresentPage extends Component {
                                     NEW
                                 </Link>
                             </li>
-                            <li className="nav-link col-2">
-                                <Link to="/userprofile">
+                            <li className="nav-link col-2" >
+                                <Link to="/userprofile" id="user-profile">
                                     PROFILE
                                 </Link>
                             </li>

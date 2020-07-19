@@ -7,7 +7,6 @@ class DisplayOneComponent extends Component {
 
     changeDisplay = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
         this.setState({ display: event.target.value });
     };
 
@@ -19,6 +18,7 @@ class DisplayOneComponent extends Component {
     //create object out of form values and send to update component in database
     createComponent = (event) => {
         event.preventDefault();
+
         //change public to boolean value
         let isPublic = true;
         this.public.value === "public" ? (isPublic = true) : (isPublic = false);
@@ -27,25 +27,25 @@ class DisplayOneComponent extends Component {
         let tags = this.tags.value.toUpperCase();
         let tagsArray = tags.split(",");
         tagsArray = tagsArray.map(tag => tag.trim());
-        console.log(tagsArray);
+
         this.setState(
             {
                 updateComponent: {
                     image: this.image.value,
-                    title: this.title.value,
                     description: this.description.value,
                     code_block: this.code_block.value,
-                    public: isPublic,
                     language: this.language.value,
+                    public: isPublic,
                     tags: tagsArray,
                 },
             },
             () => {
+                console.log(this.state.updateComponent);
+                console.log(this.props.component.id);
                 this.props.update(
                     this.state.updateComponent,
                     this.props.component.id
                 );
-                window.location.href = "/";
                 this.clearForm();
             }
         );
