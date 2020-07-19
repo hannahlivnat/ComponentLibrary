@@ -87,6 +87,7 @@ ul {
     display: grid;
     place-content: center;
   }
+
   .bottom-banner {
     width: 100%;
     grid-area: banner;
@@ -125,6 +126,51 @@ ul {
 
   header {
     grid-area: header;
+    background: url('https://images.unsplash.com/photo-1569407228235-9a744831a150?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60'), #ccc;
+    background-position: center center; 
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 65px 1fr;
+    grid-template-areas: 
+    "nav"
+    "search";
+
+
+    nav {
+      background-color: #fff;
+      grid-area: nav;
+
+      h4 {
+        padding-left: 3rem;
+        font-size: 2rem;
+        letter-spacing: .02rem;
+        color: $light-blue;
+      }
+
+      li, a {
+        font-size: 1rem;
+        letter-spacing: .02rem;
+        color: $light-blue;
+        margin: auto;
+      }
+    }
+
+    .search-section {
+      grid-area: search;
+      display: grid;
+      place-items: center;
+
+      input {
+        width: 70%;
+        border-radius: 24px;
+        padding: .5rem 1rem;
+        outline: none;
+        border: none;
+        box-shadow: 2px 2px 4px #ccc;
+        color: #000;
+      }
+    }
+      
   }
 
   .user-main-section {
