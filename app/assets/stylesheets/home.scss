@@ -353,6 +353,21 @@ ul {
       cursor: pointer;
     }
 
+    .likeButton {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-content: center;
+
+      .bi-suit-heart {
+        cursor: pointer;
+      }
+
+      p {
+        margin-left: 5px;
+      }
+    }
+
     .card-header {
       display: flex;
       flex-direction: column;
