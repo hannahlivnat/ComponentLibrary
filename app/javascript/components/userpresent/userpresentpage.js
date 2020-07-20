@@ -38,6 +38,14 @@ class UserPresentPage extends Component {
         document.querySelector('#home-link').click();
     }
 
+    openCard = () => {
+        document.querySelector('.popup').style.display = "block";
+    }
+
+    closeCard = () => {
+        document.querySelector('.popup').style.display = "none";
+    }
+
     render = () => {
         const {
             components,
@@ -53,6 +61,10 @@ class UserPresentPage extends Component {
             <React.Fragment>
                 <Router>
                     <div className="userpresent">
+                        <div className="popup">
+                            <a onClick={this.closeCard}>X</a>
+                            <p>You Already Have This Card!</p>
+                        </div>
                         <header>
                         <nav className="nav row">
                             <li className="nav-link col-6" >
@@ -83,10 +95,13 @@ class UserPresentPage extends Component {
                                         <React.Fragment>
                                             <DisplayComponents
                                                 components={components}
+                                                newcomponent = {newcomponent}
+                                                currentuser={currentuser}
                                                 tags={tags}
                                                 filter={this.state.filter}
                                                 changeFilter={this.changeFilter}
                                                 changeToFalse = {this.changeFilterToFalse}
+                                                opencard = {this.openCard}
                                             />
                                         </React.Fragment>
                                     </Route>

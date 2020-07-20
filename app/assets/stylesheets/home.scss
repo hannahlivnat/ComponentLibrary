@@ -246,6 +246,33 @@ ul {
   " header  "
   " main ";
 
+  .popup {
+    display: none;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $light-blue;
+    box-shadow: 2px 2px 4px #ccc;
+
+    a {
+      @include bodyfont(#fff);
+      text-decoration: none;
+      padding: 10px 0 0 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: $gray;
+      }
+    }
+
+    p {
+      @include bodyfont(#fff);
+      text-align: center;
+    }
+  }
+
   // HEADER ON USER PAGES
   header {
     grid-area: header;
@@ -330,10 +357,17 @@ ul {
       display: flex;
       flex-direction: column;
     
-      .back-button {
+      .button-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+
+      .back-button, .copy-button {
         @include bodyfont($light-blue);
         align-self: flex-end;
         cursor: pointer;
+        margin-left: 15px;
 
         &:hover {
           text-decoration: underline;

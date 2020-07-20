@@ -6,13 +6,33 @@ class Card extends Component {
     carddisplay: 'card'
   }
 
- 
   changeCardDisplay = () => {
     this.state.carddisplay === 'card' ?
     this.setState({carddisplay: 'code'}) :
     this.setState({carddisplay: 'card'})
   }
- 
+
+// COPY COMPONENT
+copyComponent = (component) => {
+    if(component.user_id === this.props.currentuser.id) {
+        this.props.opencard();
+    } else {
+        console.log(component);
+        this.setState({
+            copiedComponent: {
+                image: component.image,
+                description: component.description,
+                code_block: component.code_block,
+                language: component.language,
+                public: component.public,
+                tags: component.tags
+            }
+        }, () => {
+            console.log(this.state.copiedComponent);
+            this.props.newcomponent(this.state.copiedComponent);
+        })
+    } 
+}
 
   render = () => {
     const { component, index, display, changecomponent } = this.props  
@@ -85,8 +105,10 @@ class Card extends Component {
             ) : (
                 <div>
                     <div className="card-header">
+                        <div className="button-section">
                         <p onClick={this.changeCardDisplay} className="back-button">Back</p>
-
+                        <p onClick={() => this.copyComponent(component)} className="copy-button">Copy</p>
+                        </div>
                         <p className="card-text">{component.description}</p>
                     </div>
                     <div className="card-body">

@@ -8,16 +8,8 @@ class DisplayComponents extends Component{
     display: "card",
   }
  
-  //// FUNCTION TO FLIP CARD
-  //changeCardDisplay = () => {
-  //  (this.state.display === "card") ? 
-  //    this.setState({ display: "code" })
-  //    :
-  //    this.setState({display: "card"})
-  //}
-  
   render = () => {
-    const { components, tags, filter, changeFilter, changeToFalse } = this.props;
+    const { components, tags, filter, changeFilter, changeToFalse, newcomponent, currentuser, opencard } = this.props;
     return <div className="displaycomponents">
       <Tags tags={tags} changefilter={changeFilter} changetofalse = {changeToFalse}/>
       <div className="card-columns">
@@ -34,14 +26,18 @@ class DisplayComponents extends Component{
                             component={component}
                             key={index}
                             display={this.state.display}
-                            //changedisplay={this.changeCardDisplay}
+                            newcomponent = {newcomponent}
+                            currentuser={currentuser}
+                            opencard = {opencard}
                         />
                         : (component.tags.includes(filter)) ?
                         <Card
                             component={component}
                             key={index}
                             display={this.state.display}
-                            //changedisplay={this.changeCardDisplay}
+                            newcomponent = {newcomponent}
+                            currentuser={currentuser}
+                            opencard = {opencard}
                         /> : null}
                     </React.Fragment>
                 ) : null}
