@@ -12,6 +12,39 @@ $dark-gray: hsl(0,0,41);
 $light-blue: hsl(188, 41, 48);
 
 // MIXIN
+@mixin bp($point) {
+
+  @if $point==xs {
+    @media only screen and (max-width: 350px) {
+      @content;
+    }
+  }
+
+  @else if $point==sm {
+    @media only screen and (max-width: 620px) {
+      @content;
+    }
+  }
+
+  @else if $point==md {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @else if $point==lg {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+
+  @else if $point==xl {
+    @media only screen and (min-width: 1300px) {
+      @content;
+    }
+  }
+}
+
 @mixin hundredeverything {
   height: 100%;
   width: 100%;
@@ -40,7 +73,7 @@ $light-blue: hsl(188, 41, 48);
 @mixin bodyfont ($color){
   font-family: $Oswald;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: .9rem;
   color: $color;
   letter-spacing: .01rem;
 }
@@ -61,6 +94,7 @@ html, body {
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .containerdiv{
@@ -108,6 +142,9 @@ ul {
     grid-area: header;
 
     h4 {
+      @include bp(md) {
+        padding-left: 1rem;
+      }
       @include headerfont($light-blue);
       padding-left: 3rem;
     }
@@ -204,11 +241,10 @@ ul {
   @include hundredeverything;
   display: grid;
   grid-template-rows: 20rem 1fr;
-  grid-template-columns: 5% 90% 5%;
-  grid-gap: 10px;
+  grid-template-columns: 100%;
   grid-template-areas: 
-  "header header header "
-  " . main . ";
+  " header  "
+  " main ";
 
   // HEADER ON USER PAGES
   header {
@@ -225,14 +261,16 @@ ul {
     nav {
       background-color: #fff;
       grid-area: nav;
+      padding: 5px 0px;
 
       h4 {
         @include headerfont($light-blue);
-        padding-left: 1rem;
+        margin-left: 1rem;
       }
 
       li, a {
-        @include bodyfont($light-blue)
+        @include bodyfont($light-blue);
+        font-size: .9rem;
         margin: auto;
         cursor: pointer;
 
@@ -249,6 +287,9 @@ ul {
       place-items: center;
 
       input {
+        @include bp(md) {
+          width: 90%;
+        }
         width: 70%;
         border-radius: 24px;
         padding: .5rem 1rem;
@@ -262,15 +303,23 @@ ul {
 
   .user-main-section {
     grid-area: main;
+    width: 90%;
+    margin: 4rem auto;
   }
 }
 
 // CARD SECTION ON DISPLAY COMPONENTS AND USER PROFILE
 .card-columns {
 
+  @include bp(md) {
+    column-count: 2;
+  }
+
+  @include bp(sm) {
+    column-count: 1;
+  }
+
   .card {
-    margin: 1rem;
-    max-width: 500px;
     position: relative;
 
     img {
@@ -341,19 +390,15 @@ ul {
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
-      padding: .5rem;
 
       p {
-        font-size: 1rem;
-        letter-spacing: .02rem;
-        margin: .2rem .2rem;
-        padding: .2rem;
-        color: $light-blue; 
-        background-color: #ccc;
+        @include bodyfont($light-blue);
+        margin: .3rem .3rem;
+        padding: .2rem; 
+        background-color: whitesmoke;
       }
     }
   }
-
 }
 
 // TAGS SECTION ON HOME PAGE
@@ -362,68 +407,97 @@ ul {
 
   ul {
     width: 100%;
-    display: grid;
-    gap: 1rem;
-    grid-auto-flow: column;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 
     li {
 
       p {
         @include bodyfont(#fff)
+        font-size: .9rem;
         background-color: $light-blue;
         text-align: center;
         max-width: max-content;
         border-radius: 24px;
         box-shadow: 2px 2px 4px #ccc;
         padding: .5rem 2rem;
-        margin: auto;
+        margin: 1rem auto;
         cursor: pointer;
 
         &:hover, &:active {
           background-color: lighten($light-blue, 20%);
         }
       }
-
     }
-
   }
 }
 
 // NEW FORM
 .new-component-form {
   width: 95%;
-  padding-bottom: 10px;
-  margin: 3rem auto;
+  padding: 0 0 3rem 0;
+  margin: 5rem auto;
   background-color: whitesmoke;
   box-sizing: border-box;
 
   .form-header {
     background-color: $light-blue;
+    height: 150px;
+    display: grid;
+    place-content: center;
 
     h4 {
-      font-size: 2rem;
-      letter-spacing: .02rem;
-      color: #fff;  
+      @include subheaderfont(#fff);
       text-align: center;
     }
   }
 
   .form-group {
-    padding-top: 2rem;
+    padding: 2rem 1rem 0 1rem;
+    display: grid;
+    grid-template-rows: 95%;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "label input";
+    margin: auto;
+
+    label {
+      grid-area: label;
+      text-align: center;
+    }
+
+    input, textarea {
+      grid-area: input;
+      outline: none;  
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 200px;
+    }
+
+    button {
+      margin: 2rem auto;
+    }
   }
 
-  input {
-    outline: none;
-  }
-  
-  textarea {
-    outline: none;
-    min-height: 200px;
-  }
+  select {
+    width: 60%;
+    margin: 2rem auto;
+  }  
+
 
   button {
     background-color: $light-blue;
+    width: 50%;
+    display: block;
+    margin: 2rem auto;
   }
+}
+
+// DISPLAY COMPONENTS WITHIN PROFILE
+.displaycomponents {
+  margin-top: 3rem;
 }
 
 // CARD SHOW SECTION WITHIN PROFILE

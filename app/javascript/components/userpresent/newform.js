@@ -45,15 +45,15 @@ class NewForm extends Component {
   
   render = () => {
       return (
-          <div className="new-component-form row">
-              <form onSubmit={this.createComponent} ref={el => this.newform = el} className="col-sm-12">
+          <div className="new-component-form">
+              <form onSubmit={this.createComponent} ref={el => this.newform = el}>
 
-                    <div className="row pt-5 pb-5 justify-content-sm-center form-header">
-                        <h4 className="col-sm-8">Create Component</h4>
+                    <div className="form-header">
+                        <h4>Create Component</h4>
                     </div>
 
-                  <div className="form-group row pt-8 pb-2">
-                      <label htmlFor="description" className="col-sm-2 col-form-label">Description</label>
+                  <div className="form-group">
+                      <label htmlFor="description" >Description</label>
                       <input
                           type="text"
                           id="description"
@@ -63,8 +63,8 @@ class NewForm extends Component {
                       />
                   </div>
 
-                  <div className="form-group row mb-2">
-                      <label htmlFor="language" className="col-sm-2 col-form-label">Language</label>
+                  <div className="form-group">
+                      <label htmlFor="language" >Language</label>
                       <input
                           type="text"
                           className="form-control col-sm-9"
@@ -74,8 +74,8 @@ class NewForm extends Component {
                       />
                   </div>
 
-                  <div className="form-group row mb-2">
-                      <label htmlFor="tags" className="col-sm-2 col-form-label">Tags </label>
+                  <div className="form-group">
+                      <label htmlFor="tags" >Tags </label>
 
                       <input
                           type="text"
@@ -87,8 +87,8 @@ class NewForm extends Component {
                       />
                   </div>
 
-                  <div className="form-group row mb-2">
-                      <label htmlFor="code" className="col-sm-2 col-form-label"> Code   </label>
+                  <div className="form-group">
+                      <label htmlFor="code"> Code   </label>
                       
                       <textarea className="form-control col-sm-9"
                           placeholder="Press enter between each line of code" id="code"
@@ -96,8 +96,8 @@ class NewForm extends Component {
                       ></textarea>
                   </div>
 
-                  <div className="form-group row mb-2">
-                      <label htmlFor="image" className="col-sm-2 col-form-label"> Image </label>
+                  <div className="form-group ">
+                      <label htmlFor="image"> Image </label>
 
                       <input
                           type="text"
@@ -109,22 +109,21 @@ class NewForm extends Component {
                       />
                   </div>
 
-                  <div className="form-group mb-2 row justify-content-sm-center">
+                  <div>
                     <select
                         ref={(select) => (this.public = select)}
                         name="public"
-                        className="form-control col-sm-10"
+                        className="form-control"
                     >
                         <option value="public">Public</option>
                         <option value="private">Private</option>
                     </select>
                   </div>
 
-              <div className="row justify-content-sm-center mt-10">
-                <button type="submit" className="btn btn-primary col-sm-3">
+                <button type="submit" className="btn btn-primary">
                     Create Component
                 </button>
-              </div>              
+            
             </form>
           </div>
       );
