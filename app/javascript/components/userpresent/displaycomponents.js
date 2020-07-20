@@ -6,26 +6,15 @@ import Tags from './tags';
 class DisplayComponents extends Component{
   state = {
     display: "card",
-    //filter: "false"
   }
  
-
-  //changeFilter = (event) => {
-  //  event.preventDefault;
-  //  let new_value = "";
-  //  event.target.innerHTML === "All" ?
-  //    new_value = "false" :
-  //    new_value = event.target.innerHTML;
-  //  console.log(new_value);
-  //  this.setState({filter: new_value})
+  //// FUNCTION TO FLIP CARD
+  //changeCardDisplay = () => {
+  //  (this.state.display === "card") ? 
+  //    this.setState({ display: "code" })
+  //    :
+  //    this.setState({display: "card"})
   //}
-
-  changeCardDisplay = () => {
-    (this.state.display === "card") ? 
-      this.setState({ display: "code" })
-      :
-      this.setState({display: "card"})
-  }
   
   render = () => {
     const { components, tags, filter, changeFilter, changeToFalse } = this.props;
@@ -45,14 +34,14 @@ class DisplayComponents extends Component{
                             component={component}
                             key={index}
                             display={this.state.display}
-                            changedisplay={this.changeCardDisplay}
+                            //changedisplay={this.changeCardDisplay}
                         />
                         : (component.tags.includes(filter)) ?
                         <Card
                             component={component}
                             key={index}
                             display={this.state.display}
-                            changedisplay={this.changeCardDisplay}
+                            //changedisplay={this.changeCardDisplay}
                         /> : null}
                     </React.Fragment>
                 ) : null}

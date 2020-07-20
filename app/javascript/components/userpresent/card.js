@@ -6,6 +6,7 @@ class Card extends Component {
     carddisplay: 'card'
   }
 
+ 
   changeCardDisplay = () => {
     this.state.carddisplay === 'card' ?
     this.setState({carddisplay: 'code'}) :

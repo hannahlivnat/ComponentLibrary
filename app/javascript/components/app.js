@@ -6,7 +6,6 @@ import axios from 'axios';
 
 //App 
 class App extends React.PureComponent {
-
     state = {
         current_user: {},
         display: "nouserpresent",
@@ -16,8 +15,8 @@ class App extends React.PureComponent {
         usererror: null
     };
 
-    //USER ROUTES
-    //signup
+    // USER ROUTES ==================================================
+    // USER SIGNUP
     createUser = (body) => {
         axios.post("/user", {
             first_name: body.first_name,
@@ -39,7 +38,7 @@ class App extends React.PureComponent {
         })
     }
 
-    //login route
+    // LOGIN
     authenticateUser = (body) => {
         axios
             .post("/user/validate", {
@@ -60,7 +59,7 @@ class App extends React.PureComponent {
             });
     }
 
-    //logout user
+    // LOGOUT
     logout = () => {
         this.setState({
             current_user: {},
@@ -68,7 +67,7 @@ class App extends React.PureComponent {
         });
     }
 
-    //COMPONENT ROUTES
+    //COMPONENT ROUTES =============================================
     //INDEX
     getComponents = () => {
         const url = "/component";
@@ -79,7 +78,7 @@ class App extends React.PureComponent {
         });
     };
 
-    //Get tags and count
+    // TAGS
     getTags = () => {
         axios.get("/component/tags").then((response) => {
             this.setState(
@@ -104,12 +103,7 @@ class App extends React.PureComponent {
         })
     };
 
-    componentDidMount() {
-        this.getComponents();
-        this.getTags();
-    }
-
-    //NEW
+    // NEW
     newComponent = (body) => {
         //console.log("new component route connected!");
         axios
@@ -132,7 +126,7 @@ class App extends React.PureComponent {
             });
     };
 
-    //update component
+    // UPDATE
     updateComponent = (body, id) => {
         axios
             .put("/component/" + id, {
@@ -148,12 +142,12 @@ class App extends React.PureComponent {
                 this.setState({
                     components: response.data,
                 });
-                document.querySelector('#user-profile').click();
+                document.querySelector('#home-link').click();
 
             });
     };
 
-    //delete component
+    // DELETE
     deleteComponent = (event) => {
         event.preventDefault();
         const id = parseInt(event.target.getAttribute("id"));
@@ -163,12 +157,20 @@ class App extends React.PureComponent {
                     components: response.data,
                 }
             );
+            document.querySelector('#home-link').click();
+
         });
     };
 
+    // CHANGE STATE
     changeDisplay = (str) => {
         this.setState({ display: str });
     };
+
+    componentDidMount() {
+        this.getComponents();
+        this.getTags();
+    }
 
     render = () => {
         return (
