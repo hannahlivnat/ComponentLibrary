@@ -57,11 +57,13 @@ class DisplayOneComponent extends Component {
             <React.Fragment>
                 {this.state.display === "component" ? (
                     <div className="display-one-component">
-                        <div className="codeBlock">
+                        <div  className="display-component-image">
                             <img
-                                className="display-component-image"
-                                src={component.image}
+                            src={component.image}
                             />
+                        </div>
+
+                        <div className="code-block">
                             <CopyBlock
                                 text={component.code_block}
                                 language="JavaScript"
@@ -72,10 +74,11 @@ class DisplayOneComponent extends Component {
                             <p>{component.description}</p>
                         </div>
                         <div className="edit-component">
-                            <button id={component.id} onClick={destroy}>Delete</button>
+                            <button id={component.id} onClick={destroy} className="btn btn-primary col-sm-4">Delete</button>
                             <button
                                 value="editform"
                                 onClick={this.changeDisplay}
+                                className="btn btn-primary col-sm-4"
                             >
                                 Edit
                             </button>
@@ -85,70 +88,87 @@ class DisplayOneComponent extends Component {
                     <form
                         onSubmit={this.createComponent}
                         ref={(el) => (this.updateform = el)}
+                        className="edit-form"
                     >
-                        <h2>Edit Form</h2>
-                        <button value="component" onClick={this.changeDisplay}>
-                            Go Back
-                        </button>
-                        <div className="input-group mb-3">
+                        <div className="justify-content-sm-center form-header">
+                            <h4 className="col-sm-8">Edit Form</h4>
+                            <button value="component" onClick={this.changeDisplay}>
+                                Go Back
+                            </button>
+                        </div>
+
+                        <div className="form-group row pt-8 pb-2">
+                            <label htmlFor="description" className="col-sm-2 col-form-label">Description</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                id="description"
+                                className="form-control col-sm-9"
                                 placeholder="Description"
                                 ref={(input) => (this.description = input)}
                                 aria-label="Description"
                                 defaultValue={component.description}
                             />
                         </div>
-                        <div className="input-group mb-3">
+                        <div className="form-group row mb-2">
+                            <label htmlFor="language" className="col-sm-2 col-form-label">Language</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control col-sm-9"
                                 placeholder="language"
                                 ref={(input) => (this.language = input)}
                                 aria-label="language"
                                 defaultValue={component.language}
                             />
                         </div>
-                        <div className="input-group mb-3">
+                        <div className="form-group row mb-2">
+                            <label htmlFor="tags" className="col-sm-2 col-form-label">Tags </label>
                             <input
                                 type="text"
-                                className="form-control"
-                                placeholder="Tags: place a comma between each tag"
+                                className="form-control col-sm-9"
+                                id="tags"                                placeholder="Tags: place a comma between each tag"
                                 ref={(input) => (this.tags = input)}
                                 aria-label="tag"
                                 defaultValue={component.tags}
                             />
                         </div>
-                        <div className="input-group mb-3">
+                        <div className="form-group row mb-2">
+                           <label htmlFor="code" className="col-sm-2 col-form-label"> Code </label>
                             <textarea
-                                className="form-control"
+                                className="form-control col-sm-9"
+                                id="code"
                                 placeholder="Code for Component"
                                 ref={(input) => (this.code_block = input)}
                                 defaultValue={component.code_block}
                             ></textarea>
                         </div>
-                        <div className="input-group mb-3">
+                        <div className="form-group row mb-2">
+                            <label htmlFor="image" className="col-sm-2 col-form-label"> Image </label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control col-sm-9"
+                                id="image"
                                 placeholder="Image SRC"
                                 ref={(input) => (this.image = input)}
                                 aria-label="image src"
                                 defaultValue={component.image}
                             />
                         </div>
-                        <div className="input-group mb-3">
+                        <div className="form-group row mb-2 row justify-content-sm-center">
                             <select
                                 ref={(select) => (this.public = select)}
                                 name="public"
+                                className="form-control col-sm-8"
                             >
                                 <option value="public">Public</option>
                                 <option value="private">Private</option>
                             </select>
                         </div>
 
-                        <input type="submit" value="Edit Component" />
+                        <div className="row justify-content-sm-center mt-10">
+                            <button type="submit" className="btn btn-primary col-sm-3 submit-btn">
+                                Edit Component
+                            </button>
+                        </div>                      
                     </form>
                 )}
             </React.Fragment>

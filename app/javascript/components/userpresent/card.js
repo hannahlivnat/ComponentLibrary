@@ -24,9 +24,9 @@ class Card extends Component {
                         className="card-img-top img-responsive"
                         src={component.image}
                     />
-                    <div className="card-body">
+                    <div className="card-body image-card-body">
                         {display === "user" ? (
-                            <React.Fragment>
+                            <div className="cardtop">
                                 <button
                                     id={component.id}
                                     onClick={changecomponent}
@@ -35,7 +35,7 @@ class Card extends Component {
                                     Edit{" "}
                                 </button>
                                 {component.public ? (
-                                    <p>
+                                    <p className="public">
                                         <svg
                                             width="1em"
                                             height="1em"
@@ -52,7 +52,7 @@ class Card extends Component {
                                         </svg>
                                     </p>
                                 ) : (
-                                    <p>
+                                    <p className="public">
                                         {" "}
                                         <svg
                                             width="1em"
@@ -70,7 +70,7 @@ class Card extends Component {
                                         </svg>
                                     </p>
                                 )}
-                            </React.Fragment>
+                            </div>
                         ) : null}
                         <p className="card-text">{component.description}</p>
 
@@ -84,7 +84,7 @@ class Card extends Component {
             ) : (
                 <div>
                     <div className="card-header">
-                        <p onClick={this.changeCardDisplay}>Back</p>
+                        <p onClick={this.changeCardDisplay} className="back-button">Back</p>
 
                         <p className="card-text">{component.description}</p>
                     </div>

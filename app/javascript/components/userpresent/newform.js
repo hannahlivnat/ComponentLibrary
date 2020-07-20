@@ -44,7 +44,6 @@ class NewForm extends Component {
   };
   
   render = () => {
-      const { newformmessage } = this.props; 
       return (
           <div className="new-component-form row">
               <form onSubmit={this.createComponent} ref={el => this.newform = el} className="col-sm-12">
@@ -127,7 +126,6 @@ class NewForm extends Component {
                 </button>
               </div>              
             </form>
-            <div className="newform-messages"> {newformmessage} </div>
           </div>
       );
   };
