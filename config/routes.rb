@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   put '/component/:id', to: 'component#update'
   delete '/component/:id', to: 'component#destroy'
 
-  # image uploading 
+  # like routes
+  get '/tag', to: 'tag#index'
+  post '/tag', to: 'tag#new'
+  put '/put/:id', to: 'component#update'
  
 
   # user routes

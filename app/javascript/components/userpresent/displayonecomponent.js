@@ -125,7 +125,8 @@ class DisplayOneComponent extends Component {
                             <input
                                 type="text"
                                 className="form-control col-sm-9"
-                                id="tags"                                placeholder="Tags: place a comma between each tag"
+                                id="tags"                                
+                                placeholder="Tags: place a comma between each tag"
                                 ref={(input) => (this.tags = input)}
                                 aria-label="tag"
                                 defaultValue={component.tags}
