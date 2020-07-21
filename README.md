@@ -6,7 +6,7 @@ Login / Sign Up Page
 ![](/app/assets/images/ComponentLibrary.gif)
 
 Home Page
-![](/app/assets/images/componentlibraryhomepage.gif)
+![](/app/assets/images/componentlibraryhome.gif)
 
 Profile
 ![](/app/assets/images/componentlibrary_profile.gif)
