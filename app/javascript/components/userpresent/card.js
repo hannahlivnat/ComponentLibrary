@@ -36,16 +36,16 @@ class Card extends Component {
     // INCREASE LIKE BUTTON
     increaseLike = () => {
         const likecount = parseInt(this.state.likecount) + 1
-        console.log(likecount)
         if (likecount > 1) {
             console.log("Like Count Over 1", this.state.likecount, likecount, this.state.like.id);
             this.props.increaselike(likecount, this.state.like.id)
-
         } else {
             console.log("Like Count Below 1", this.state.likecount, likecount, this.props.component.id);
             this.props.createlike(likecount, this.props.component.id)
-
         }
+        setTimeout(() => {
+            this.getLike(this.props.component.id);   
+        }, 200);
     }
 
     // COPY COMPONENT
