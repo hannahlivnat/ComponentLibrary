@@ -19,7 +19,7 @@ class Card extends Component {
     getLike = (componentid) => {
         axios.get(`/like/${componentid}`).then((response) => {
             const like = response.data;
-            console.log(like);
+            //console.log(like);
             this.setState({
                 like: like,
                 likecount: like.count
@@ -37,10 +37,10 @@ class Card extends Component {
     increaseLike = () => {
         const likecount = parseInt(this.state.likecount) + 1
         if (likecount > 1) {
-            console.log("Like Count Over 1", this.state.likecount, likecount, this.state.like.id);
+            //console.log("Like Count Over 1", this.state.likecount, likecount, this.state.like.id);
             this.props.increaselike(likecount, this.state.like.id)
         } else {
-            console.log("Like Count Below 1", this.state.likecount, likecount, this.props.component.id);
+            //console.log("Like Count Below 1", this.state.likecount, likecount, this.props.component.id);
             this.props.createlike(likecount, this.props.component.id)
         }
         setTimeout(() => {
