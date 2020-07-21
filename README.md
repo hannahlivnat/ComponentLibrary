@@ -3,13 +3,13 @@
 ## PREVIEW
 Login / Sign Up Page
 
-![](app/assets/image/ComponentLibrary.gif)
+![](/app/assets/image/ComponentLibrary.gif)
 
 Home Page
-![](app/assets/image/componentlibraryhomepage.gif)
+![](/app/assets/image/componentlibraryhomepage.gif)
 
 Profile
-![](app/assets/image/componentlibrary_profile.gif)
+![](/app/assets/image/componentlibrary_profile.gif)
 
 
 ## VIEW LIVE APP 
