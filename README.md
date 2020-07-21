@@ -2,13 +2,13 @@
 
 ## PREVIEW
 Login / Sign Up Page
-![](/assets/image/ComponentLibrary.gif)
+![](app/assets/image/ComponentLibrary.gif)
 
 Home Page
-![](/assets/image/componentlibraryhomepage.gif)
+![](app/assets/image/componentlibraryhomepage.gif)
 
 Profile
-![](/assets/image/componentlibrary_profile.gif)
+![](app/assets/image/componentlibrary_profile.gif)
 
 ## VIEW LIVE APP 
 https://fathomless-retreat-78559.herokuapp.com/
