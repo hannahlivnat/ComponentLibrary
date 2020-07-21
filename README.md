@@ -45,3 +45,4 @@ __Features:__
 * The language property of the component model is not working. 
 * Bootcamp responsiveness can be improved
 * Add in update and delete routes on user route.
+* Get top tags to update without refresh
