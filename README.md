@@ -2,6 +2,7 @@
 
 ## PREVIEW
 Login / Sign Up Page
+
 ![](app/assets/image/ComponentLibrary.gif)
 
 Home Page
@@ -9,6 +10,7 @@ Home Page
 
 Profile
 ![](app/assets/image/componentlibrary_profile.gif)
+
 
 ## VIEW LIVE APP 
 https://fathomless-retreat-78559.herokuapp.com/
