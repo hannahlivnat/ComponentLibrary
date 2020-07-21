@@ -6,6 +6,10 @@ class LikeController < ApplicationController
     render json: Like.all
   end
 
+  def show
+    render json: Like.find_by(component_id: params["component_id"])
+  end
+
   def new
     @component = Component.find(params["component_id"])
     Like.create(
@@ -21,5 +25,12 @@ class LikeController < ApplicationController
       count: params["count"],
       component: @like_to_update.component
     )
+    render json: Like.all
+  end
+
+  def destroy
+    @like = Like.find(params["id"]);
+    @like.destroy
+    render json: Like.all
   end
 end

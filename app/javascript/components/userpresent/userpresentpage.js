@@ -55,7 +55,9 @@ class UserPresentPage extends Component {
             update,
             destroy,
             tags,
-            logout
+            logout, 
+            createlike, 
+            increaselike 
         } = this.props;
         return (
             <React.Fragment>
@@ -102,6 +104,8 @@ class UserPresentPage extends Component {
                                                 changeFilter={this.changeFilter}
                                                 changeToFalse = {this.changeFilterToFalse}
                                                 opencard = {this.openCard}
+                                                createlike = {createlike}
+                                                increaselike = {increaselike}
                                             />
                                         </React.Fragment>
                                     </Route>

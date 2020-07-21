@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   #index route
   get '/', to: 'home#index'
+
   #API 
   # component routes
   get '/component', to: 'component#index'
@@ -14,9 +15,11 @@ Rails.application.routes.draw do
   delete '/component/:id', to: 'component#destroy'
 
   # like routes
-  get '/tag', to: 'tag#index'
-  post '/tag', to: 'tag#new'
-  put '/put/:id', to: 'component#update'
+  get '/like', to: 'like#index'
+  get '/like/:component_id', to: 'like#show'
+  post '/like/:component_id', to: 'like#new'
+  put '/like/:id', to: 'like#update'
+  delete '/like/:id', to: 'like#destroy'
  
 
   # user routes

@@ -10,6 +10,7 @@ class App extends React.PureComponent {
         current_user: {},
         display: "nouserpresent",
         components: [],
+        likes: [],
         tags: {},
         top_tags: [],
         usererror: null
@@ -162,6 +163,28 @@ class App extends React.PureComponent {
         });
     };
 
+    // LIKE ROUTES =============================================
+ 
+    // NEW 
+    createLike = (likecount, componentid) => {
+        event.preventDefault();
+        axios.post(`/like/${componentid}`, {
+            count: likecount,
+        }).then((response) => {
+            this.setState({ likes: response.data })
+        })
+    }
+
+    // UPDATE
+    increaseLike = (likecount, id) => {
+        event.preventDefault();
+        axios.put(`/like/${id}`, {
+            count: likecount
+        }).then((response) => {
+            this.setState({ likes: response.data })
+        })
+    }
+
     // CHANGE STATE
     changeDisplay = (str) => {
         this.setState({ display: str });
@@ -187,6 +210,8 @@ class App extends React.PureComponent {
                             destroy={this.deleteComponent}
                             tags={this.state.top_tags}
                             logout={this.logout}
+                            createlike={this.createLike}
+                            increaselike={this.increaseLike}
                         />
                     ) : (
                         <NoUserPresentPage 

@@ -9,7 +9,7 @@ class DisplayComponents extends Component{
   }
  
   render = () => {
-    const { components, tags, filter, changeFilter, changeToFalse, newcomponent, currentuser, opencard } = this.props;
+    const { components, tags, filter, changeFilter, changeToFalse, newcomponent, currentuser, opencard, createlike, increaselike } = this.props;
     return <div className="displaycomponents">
       <Tags tags={tags} changefilter={changeFilter} changetofalse = {changeToFalse}/>
       <div className="card-columns">
@@ -29,6 +29,8 @@ class DisplayComponents extends Component{
                             newcomponent = {newcomponent}
                             currentuser={currentuser}
                             opencard = {opencard}
+                            createlike = {createlike}
+                            increaselike = {increaselike}
                         />
                         : (component.tags.includes(filter)) ?
                         <Card
@@ -38,6 +40,8 @@ class DisplayComponents extends Component{
                             newcomponent = {newcomponent}
                             currentuser={currentuser}
                             opencard = {opencard}
+                            createlike = {createlike}
+                            increaselike = {increaselike}
                         /> : null}
                     </React.Fragment>
                 ) : null}
