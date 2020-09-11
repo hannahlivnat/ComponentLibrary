@@ -14,7 +14,7 @@
 ![](/app/assets/images/componentlibrary_profile.gif)
 
 ## VIEW LIVE APP 
-https://fathomless-retreat-78559.herokuapp.com/
+https://hl-component-library.herokuapp.com/
 
 ## PROJECT DESCRIPTION
 Component Library gives developers a way to save commonly used components and share them with other developers, inspired by Pinterest. 
